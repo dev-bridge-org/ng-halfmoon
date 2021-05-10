@@ -1,7 +1,7 @@
 {
   "name": "ng-halfmoon",
   "version": "0.0.1",
-  "description": "Front-end framework with a built-in dark mode and full customizability using CSS variables; great for building dashboards and tools",
+  "description": "Angular Library to build upon the halfmoon-framework",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/officialMKL/ng-halfmoon.git"
@@ -12,6 +12,8 @@
     "ng-halfmoon",
     "css",
     "javascript",
+    "typescript",
+    "html",
     "dark-theme",
     "dark-mode",
     "dashboard",

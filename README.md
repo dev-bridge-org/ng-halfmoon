@@ -1,9 +1,11 @@
 # NgHalfmoon
-This is the workspace for the angular-libary of the halfmoon-framework
+This is the workspace for the angular-libary of [halfmoon](https://www.gethalfmoon.com/).
 Here we will be adding angular-components and other utilities to help you develop apps with the halfmoon-framework.
 
+The credits go to the maintainers and contributors of halfmoon because without it this wouldn't be possible.
+
 ## Contribution, Issues and PRs
-Please be patient, the guidelines for those will be added in a few days.
+Please take a look at [Contributing]()
 
 ## Documentation
 The start of the docs will be here in a few days.
