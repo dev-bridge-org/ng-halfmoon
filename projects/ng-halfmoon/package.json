@@ -4,7 +4,7 @@
   "description": "Front-end framework with a built-in dark mode and full customizability using CSS variables; great for building dashboards and tools",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/halfmoonui/halfmoon.git"
+    "url": "git+https://github.com/officialMKL/ng-halfmoon.git"
   },
   "keywords": [
     "halfmoon",
@@ -20,12 +20,12 @@
     "css-variables",
     "css-custom-properties"
   ],
-  "author": "Halfmoon UI",
+  "author": "Michael Stadelmann",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/halfmoonui/halfmoon/issues"
+    "url": "https://github.com/officialMKL/ng-halfmoon/issues"
   },
-  "homepage": "https://github.com/halfmoonui/halfmoon#readme",
+  "homepage": "https://github.com/officialMKL/ng-halfmoon#readme",
   "peerDependencies": {
     "@angular/common": "^11.2.13",
     "@angular/core": "^11.2.13"

@@ -3,7 +3,7 @@
 ## Installation
 You can install `ng-halfmoon` via npm
 ```bash
-npm install ng-halfmoon
+npm install halfmoon @fortawesome/fontawesome-free ng-halfmoon
 ```
 
 ## Setup
@@ -21,5 +21,7 @@ export class AppModule {
 }
 ```
 ```html
-<!-- TODO: Add sample -->
+<button hmButton appearance="primary">
 ```
+
+If this shows the button in primary like on the halfmoon-docs you've made everything right.
