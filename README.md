@@ -1,5 +1,12 @@
 # NgHalfmoon
-This is the workspace for the angular-libary
+This is the workspace for the angular-libary of the halfmoon-framework
+Here we will be adding angular-components and other utilities to help you develop apps with the halfmoon-framework.
+
+## Contribution, Issues and PRs
+Please be patient, the guidelines for those will be added in a few days.
+
+## Documentation
+The start of the docs will be here in a few days.
 
 ## Start developing
 After checking out or forking the repo you can simply run the following command inside the ng-halfmoon folder to start developing
