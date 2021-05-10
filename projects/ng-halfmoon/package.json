@@ -1,10 +1,10 @@
 {
   "name": "ng-halfmoon",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Angular Library to build upon the halfmoon-framework",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/officialMKL/ng-halfmoon.git"
+    "url": "https://github.com/officialMKL/ng-halfmoon.git"
   },
   "keywords": [
     "halfmoon",
