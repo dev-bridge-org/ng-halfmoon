@@ -5,7 +5,7 @@ Here we will be adding angular-components and other utilities to help you develo
 The credits go to the maintainers and contributors of halfmoon because without it this wouldn't be possible.
 
 ## Contribution, Issues and PRs
-Please take a look at [Contributing]()
+Please take a look at [Contributing](https://github.com/officialMKL/ng-halfmoon/blob/develop/CONTRIBUTING.md)
 
 ## Documentation
 The start of the docs will be here in a few days.
