@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import {ButtonsComponent} from "./buttons/buttons.component";
 import {NgHalfmoonModule} from "ng-halfmoon";
 import { InputComponent } from './input/input.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import {FormsModule} from "@angular/forms";
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    NgHalfmoonModule
+    NgHalfmoonModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

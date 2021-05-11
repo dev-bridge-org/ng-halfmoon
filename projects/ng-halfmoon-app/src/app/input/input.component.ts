@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-input',
@@ -8,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class InputComponent implements OnInit {
   test: string = 'Test';
   testRequired: string = '';
+
+  reactive: FormControl = new FormControl('');
+  reactiveRequired: FormControl = new FormControl('', Validators.required);
 
   constructor() { }
 
