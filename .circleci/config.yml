@@ -32,7 +32,7 @@ jobs:
       #     pkg-manager: yarn
       - run:
           name: Run tests
-          command: npm test:ng-halfmoon
+          command: npm run test:ng-halfmoon
 
 workflows:
   # Below is the definition of your workflow.
