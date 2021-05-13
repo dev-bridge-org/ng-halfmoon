@@ -8,7 +8,6 @@ orbs:
   # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/node
   node: circleci/node@4.1
 
-
 jobs:
   # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
   build-and-test:
@@ -17,8 +16,14 @@ jobs:
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/node
     docker:
       - image: cimg/node:15.1
+    environment:
+      - CHROME_BIN: /usr/lib/chromium/chrome
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
+#   branches:
+#     only:
+#       - main
+#       - circleci-project-setup
     steps:
       # Checkout the code as the first step.
       - checkout
