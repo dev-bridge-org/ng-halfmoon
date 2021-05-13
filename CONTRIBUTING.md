@@ -6,8 +6,7 @@ Due to the fact that this is a angular-library for the halfmoon-framework the ta
 ## Issues
 If there is anything wrong with one of the components or utilities then make sure to add a issue.
 
-You shouldn't always create an issue if it is a personal-bug therefore you can contact us at contact@mkl-dev.net.
-
+You shouldn't always create an issue if it is a personal-bug therefore you can contact us at contact@mkl-dev.net (e-mail-currently not available)
 Please make sure you have a link to either a repository, or a stackblitz where you have reproduced the issue.
 This is important that we can debug why the error is happening. If you already know where the bug appears then you can add it to your issue, and we will fix it.
 Some bugs might be fixed asap, some might take longer due to priority.

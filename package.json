@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "prestart": "npm run build:ng-halfmoon",
     "start": "ng serve ng-halfmoon-app",
     "build": "ng build",
     "build:ng-halfmoon": "ng build ng-halfmoon --prod",

@@ -5,16 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {ButtonsComponent} from "./buttons/buttons.component";
 import {NgHalfmoonModule} from "ng-halfmoon";
+import { InputComponent } from './input/input.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ButtonsComponent
+    ButtonsComponent,
+    InputComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
-    NgHalfmoonModule
+    NgHalfmoonModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

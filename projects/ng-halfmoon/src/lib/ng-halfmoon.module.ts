@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import {ButtonDirective} from "./basics";
+import {InputDirective} from './form';
+import {CommonModule} from "@angular/common";
 
 
 
 @NgModule({
   declarations: [
-    ButtonDirective
+    ButtonDirective,
+    InputDirective
   ],
   imports: [
+    CommonModule
   ],
   exports: [
-    ButtonDirective
+    ButtonDirective,
+    InputDirective
   ]
 })
 export class NgHalfmoonModule { }
