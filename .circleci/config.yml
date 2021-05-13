@@ -20,10 +20,10 @@ jobs:
       - CHROME_BIN: /usr/lib/chromium/chrome
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
-#   branches:
-#     only:
-#       - main
-#       - circleci-project-setup
+    branches:
+      only:
+        - main
+        - develop
     steps:
       # Checkout the code as the first step.
       - checkout
