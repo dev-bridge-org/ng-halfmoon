@@ -26,7 +26,8 @@
           "options": {
             "main": "projects/ng-halfmoon/src/test.ts",
             "tsConfig": "projects/ng-halfmoon/tsconfig.spec.json",
-            "karmaConfig": "projects/ng-halfmoon/karma.conf.js"
+            "karmaConfig": "projects/ng-halfmoon/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {
