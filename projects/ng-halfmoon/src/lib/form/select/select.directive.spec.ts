@@ -39,7 +39,7 @@ describe('SelectDirective', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  describe('size', () => {
+  describe('sizing', () => {
     it('should apply no size class', () => {
       fixture.detectChanges();
       expect(TestUtils.getElementByDirective(fixture, By.directive(SelectDirective)).nativeElement.classList.contains('form-control-lg')).toEqual(false);

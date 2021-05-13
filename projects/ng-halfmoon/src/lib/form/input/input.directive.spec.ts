@@ -37,7 +37,7 @@ describe('InputDirective', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  describe('size', () => {
+  describe('sizing', () => {
     it('should apply no size class', () => {
       fixture.detectChanges();
       expect(getElementByDirective(fixture).nativeElement.classList.contains('form-control-lg')).toEqual(false);
