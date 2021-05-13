@@ -18,7 +18,7 @@ import {NgControl} from "@angular/forms";
 })
 export class SelectDirective extends Applier implements OnChanges, DoCheck {
   // TODO: redesign sizing due to size property on html-select
-  @Input() size: Sizing = undefined;
+  @Input() sizing: Sizing = undefined;
   @HostBinding('class.is-invalid') isInvalid: boolean = false;
 
   constructor(
@@ -31,8 +31,8 @@ export class SelectDirective extends Applier implements OnChanges, DoCheck {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.size) {
-      this.applyChange(changes.size, this.el);
+    if (changes.sizing) {
+      this.applyChange(changes.sizing, this.el);
     }
   }
   ngDoCheck() {

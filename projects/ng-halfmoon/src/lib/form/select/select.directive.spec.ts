@@ -8,14 +8,14 @@ import {TestUtils} from "../../utils/test-utils";
 
 @Component({
   template: `
-    <select hmSelect [size]="size" [(ngModel)]="testModel" [required]="required">
+    <select hmSelect [sizing]="sizing" [(ngModel)]="testModel" [required]="required">
       <option [value]="null">please select...</option>
       <option value="test">Test</option>
     </select>
   `
 })
 class SelectTestComponent {
-  size: Sizing = undefined;
+  sizing: Sizing = undefined;
   testModel: string;
   required: boolean = false;
 }
@@ -46,12 +46,12 @@ describe('SelectDirective', () => {
       expect(TestUtils.getElementByDirective(fixture, By.directive(SelectDirective)).nativeElement.classList.contains('form-control-sm')).toEqual(false);
     });
     it('should apply "form-control-lg"', () => {
-      component.size = 'lg';
+      component.sizing = 'lg';
       fixture.detectChanges();
       expect(TestUtils.getElementByDirective(fixture, By.directive(SelectDirective)).nativeElement.classList.contains('form-control-lg')).toEqual(true);
     });
     it('should apply "form-control-sm"', () => {
-      component.size = 'sm';
+      component.sizing = 'sm';
       fixture.detectChanges();
       expect(TestUtils.getElementByDirective(fixture, By.directive(SelectDirective)).nativeElement.classList.contains('form-control-sm')).toEqual(true);
     });

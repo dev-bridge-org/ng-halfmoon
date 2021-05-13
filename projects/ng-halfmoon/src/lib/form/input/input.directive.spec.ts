@@ -6,10 +6,10 @@ import {By} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
 
 @Component({
-  template: `<input hmInput [size]="size" [(ngModel)]="testModel" [required]="required" />`
+  template: `<input hmInput [sizing]="sizing" [(ngModel)]="testModel" [required]="required"/>`
 })
 class InputTestComponent {
-  size: Sizing = undefined;
+  sizing: Sizing = undefined;
   testModel: string;
   required: boolean = false;
 }
@@ -44,12 +44,12 @@ describe('InputDirective', () => {
       expect(getElementByDirective(fixture).nativeElement.classList.contains('form-control-sm')).toEqual(false);
     });
     it('should apply "form-control-lg"', () => {
-      component.size = 'lg';
+      component.sizing = 'lg';
       fixture.detectChanges();
       expect(getElementByDirective(fixture).nativeElement.classList.contains('form-control-lg')).toEqual(true);
     });
     it('should apply "form-control-sm"', () => {
-      component.size = 'sm';
+      component.sizing = 'sm';
       fixture.detectChanges();
       expect(getElementByDirective(fixture).nativeElement.classList.contains('form-control-sm')).toEqual(true);
     });

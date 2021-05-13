@@ -16,7 +16,7 @@ import {NgControl} from "@angular/forms";
   selector: '[hmInput]'
 })
 export class InputDirective extends Applier implements OnChanges, DoCheck {
-  @Input() size: Sizing = undefined;
+  @Input() sizing: Sizing = undefined;
   @HostBinding('class.is-invalid') isInvalid: boolean = false;
   constructor(
     @Optional() @Self() public ngControl: NgControl,
@@ -28,8 +28,8 @@ export class InputDirective extends Applier implements OnChanges, DoCheck {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.size) {
-      this.applyChange(changes.size, this.el);
+    if (changes.sizing) {
+      this.applyChange(changes.sizing, this.el);
     }
   }
   ngDoCheck() {
