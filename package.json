@@ -6,6 +6,8 @@
     "prestart": "npm run build:ng-halfmoon",
     "start": "ng serve ng-halfmoon-app",
     "build": "ng build",
+    "build:workspace": "npm run build:ng-halfmoon && npm run build:app",
+    "build:app": "ng build ng-halfmoon-app --prod",
     "build:ng-halfmoon": "ng build ng-halfmoon --prod",
     "test": "ng test",
     "test:ng-halfmoon": "ng test ng-halfmoon",
@@ -29,7 +31,7 @@
   },
   "devDependencies": {
     "@angular-builders/jest": "11.2.0",
-    "@angular-devkit/build-angular": "^0.901.15",
+    "@angular-devkit/build-angular": "~0.1102.12",
     "@angular-eslint/builder": "4.2.0",
     "@angular-eslint/eslint-plugin": "4.2.0",
     "@angular-eslint/eslint-plugin-template": "4.2.0",

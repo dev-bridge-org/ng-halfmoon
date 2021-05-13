@@ -1,7 +1,8 @@
 import {
   Directive,
   DoCheck,
-  ElementRef, HostBinding,
+  ElementRef,
+  HostBinding,
   Input,
   OnChanges,
   Optional,
@@ -13,11 +14,13 @@ import {Applier, Sizing} from "../../utils";
 import {NgControl} from "@angular/forms";
 
 @Directive({
-  selector: '[hmInput]'
+  selector: '[hmSelect]'
 })
-export class InputDirective extends Applier implements OnChanges, DoCheck {
+export class SelectDirective extends Applier implements OnChanges, DoCheck {
+  // TODO: redesign sizing due to size property on html-select
   @Input() sizing: Sizing = undefined;
   @HostBinding('class.is-invalid') isInvalid: boolean = false;
+
   constructor(
     @Optional() @Self() public ngControl: NgControl,
     el: ElementRef,
