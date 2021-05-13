@@ -18,6 +18,12 @@ function getElementByDirective(fixture: ComponentFixture<InputTestComponent>): D
   return fixture.debugElement.query(By.directive(InputDirective));
 }
 
+function dispatchInputEvent(fixture: ComponentFixture<InputTestComponent>, input: string): void {
+  const el = getElementByDirective(fixture).nativeElement;
+  el.value = input;
+  el.dispatchEvent(new Event('input'));
+}
+
 describe('InputDirective', () => {
   let fixture: ComponentFixture<InputTestComponent>;
   let component: InputTestComponent;
@@ -46,6 +52,25 @@ describe('InputDirective', () => {
       component.size = 'sm';
       fixture.detectChanges();
       expect(getElementByDirective(fixture).nativeElement.classList.contains('form-control-sm')).toEqual(true);
+    });
+  });
+  describe('validation', () => {
+    it('should add no "is-invalid" to the field', () => {
+      component.required = false;
+      fixture.detectChanges();
+      dispatchInputEvent(fixture, '');
+      fixture.detectChanges();
+      const classes = getElementByDirective(fixture).nativeElement.classList;
+      expect(classes.contains('is-invalid')).toEqual(false);
+    });
+
+    it('should add "is-invalid" to the field when field is required', () => {
+      component.required = true;
+      fixture.detectChanges();
+      dispatchInputEvent(fixture, '');
+      fixture.detectChanges();
+      const classes = getElementByDirective(fixture).nativeElement.classList;
+      expect(classes.contains('is-invalid')).toEqual(true);
     });
   });
 });
