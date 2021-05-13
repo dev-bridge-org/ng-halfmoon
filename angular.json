@@ -22,11 +22,9 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "projects/ng-halfmoon/src/test.ts",
-            "tsConfig": "projects/ng-halfmoon/tsconfig.spec.json",
-            "karmaConfig": "projects/ng-halfmoon/karma.conf.js"
+            "tsConfig": "projects/ng-halfmoon/tsconfig.spec.json"
           }
         },
         "lint": {
@@ -121,12 +119,10 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "projects/ng-halfmoon-app/src/test.ts",
             "polyfills": "projects/ng-halfmoon-app/src/polyfills.ts",
             "tsConfig": "projects/ng-halfmoon-app/tsconfig.spec.json",
-            "karmaConfig": "projects/ng-halfmoon-app/karma.conf.js",
             "assets": [
               "projects/ng-halfmoon-app/src/favicon.ico",
               "projects/ng-halfmoon-app/src/assets"
