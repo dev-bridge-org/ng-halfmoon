@@ -1,0 +1,25 @@
+<div class="content">
+  <h2>Form</h2>
+</div>
+<div class="content">
+  <p></p>
+</div>
+<div class="card p-0">
+  <div class="content">
+    <form class="w-400 mw-full">
+      <div class="custom-switch">
+        <input type="checkbox" id="switch-1" [(ngModel)]="required" name="required">
+        <label for="switch-1">Required?</label>
+      </div>
+      <!-- Input -->
+      <hm-form-group>
+        <input hmInput type="text" id="name" name="name" [(ngModel)]="name" placeholder="Name" [required]="required">
+        <label for="name">Name</label>
+      </hm-form-group>
+      <hm-form-group>
+        <input hmInput type="text" id="name2" name="name2" [(ngModel)]="name2" placeholder="Name">
+        <label for="name2">Name</label>
+      </hm-form-group>
+    </form>
+  </div>
+</div>

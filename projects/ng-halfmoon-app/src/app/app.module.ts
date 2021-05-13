@@ -8,13 +8,15 @@ import {NgHalfmoonModule} from "ng-halfmoon";
 import { InputComponent } from './input/input.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SelectComponent } from './select/select.component';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ButtonsComponent,
     InputComponent,
-    SelectComponent
+    SelectComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import {ButtonDirective} from "./basics";
-import {InputDirective, SelectDirective} from './form';
+import {FormGroupComponent, InputDirective, SelectDirective} from './form';
 import {CommonModule} from "@angular/common";
 
 
@@ -8,7 +8,8 @@ import {CommonModule} from "@angular/common";
   declarations: [
     ButtonDirective,
     InputDirective,
-    SelectDirective
+    SelectDirective,
+    FormGroupComponent
   ],
   imports: [
     CommonModule
@@ -16,7 +17,8 @@ import {CommonModule} from "@angular/common";
   exports: [
     ButtonDirective,
     InputDirective,
-    SelectDirective
+    SelectDirective,
+    FormGroupComponent
   ]
 })
 export class NgHalfmoonModule { }
