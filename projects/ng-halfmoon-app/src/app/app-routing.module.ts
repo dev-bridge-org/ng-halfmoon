@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {ButtonsComponent} from "./buttons/buttons.component";
 import {InputComponent} from "./input/input.component";
+import {SelectComponent} from "./select/select.component";
 
 const routes: Routes = [
   {path: 'buttons', component: ButtonsComponent},
   {path: 'input', component: InputComponent},
+  {path: 'select', component: SelectComponent},
   {path: '**', redirectTo: 'buttons'}
 ];
 @NgModule({
