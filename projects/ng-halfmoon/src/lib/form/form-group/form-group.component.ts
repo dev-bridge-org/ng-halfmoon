@@ -1,10 +1,12 @@
 import {
   AfterViewChecked,
+  ChangeDetectionStrategy,
   Component,
   ContentChild,
   ElementRef,
   HostBinding,
-  Injector, OnDestroy,
+  Injector,
+  OnDestroy,
   OnInit,
   Renderer2
 } from '@angular/core';
@@ -16,7 +18,8 @@ import {Subscription} from "rxjs";
   selector: 'hm-form-group',
   templateUrl: './form-group.component.html',
   styleUrls: ['./form-group.component.css'],
-  providers: [ControlService]
+  providers: [ControlService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormGroupComponent implements OnInit, AfterViewChecked, OnDestroy {
   @HostBinding('class.form-group') baseClass = true;
@@ -38,7 +41,7 @@ export class FormGroupComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   ngOnInit(): void {
     this.controlLabel = this.el.nativeElement.firstChild;
-    this.control = this.el.nativeElement.lastChild;
+    this.control = this.el.nativeElement.childNodes[1];
   }
 
   ngAfterViewChecked() {

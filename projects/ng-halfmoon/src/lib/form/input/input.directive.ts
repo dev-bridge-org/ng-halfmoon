@@ -1,6 +1,6 @@
 import {
   Directive,
-  ElementRef, HostBinding, Injector,
+  ElementRef, HostBinding, HostListener, Injector,
   Input,
   OnChanges, OnDestroy,
   Optional,
@@ -45,6 +45,11 @@ export class InputDirective extends Applier implements OnChanges, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  @HostListener('blur')
+  changeStatus(): void {
+    this.controlService.triggerStatusChange();
   }
 
 }
