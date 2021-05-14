@@ -13,6 +13,9 @@
       </div>
       <!-- Input -->
       <hm-form-group>
+        <hm-hint>
+          Only alphanumeric characters and underscores allowed.
+        </hm-hint>
         <input hmInput type="text" id="name" name="name" [(ngModel)]="name" placeholder="Name" [required]="required">
         <label for="name">Name</label>
       </hm-form-group>
