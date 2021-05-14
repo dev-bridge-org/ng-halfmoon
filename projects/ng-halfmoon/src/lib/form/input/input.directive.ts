@@ -1,9 +1,8 @@
 import {
   Directive,
-  DoCheck,
   ElementRef, HostBinding, Injector,
   Input,
-  OnChanges,
+  OnChanges, OnDestroy,
   Optional,
   Renderer2,
   Self,
@@ -11,15 +10,18 @@ import {
 } from '@angular/core';
 import {Applier, Sizing} from "../../utils";
 import {NgControl} from "@angular/forms";
-import {ControlService} from "../services/control.service";
+import {ControlService, ControlStatus} from "../services/control.service";
+import {Subscription} from "rxjs";
 
 @Directive({
   selector: '[hmInput]'
 })
-export class InputDirective extends Applier implements OnChanges, DoCheck {
+export class InputDirective extends Applier implements OnChanges, OnDestroy {
   @Input() sizing: Sizing = undefined;
   @HostBinding('class.is-invalid') isInvalid: boolean = false;
+
   private controlService: ControlService
+  private subscription: Subscription
   constructor(
     @Optional() @Self() public ngControl: NgControl,
     el: ElementRef,
@@ -30,6 +32,9 @@ export class InputDirective extends Applier implements OnChanges, DoCheck {
     this.addClass('form-control', this.el);
     this.controlService = injector.get(ControlService);
     this.controlService.init(this.ngControl);
+    this.controlService.currentStatus$.subscribe((value) => {
+      this.isInvalid = value === ControlStatus.INVALID;
+    });
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -37,10 +42,9 @@ export class InputDirective extends Applier implements OnChanges, DoCheck {
       this.applyChange(changes.sizing, this.el);
     }
   }
-  ngDoCheck() {
-    if (this.ngControl) {
-      this.isInvalid = !!(this.ngControl.invalid && (this.ngControl.touched || this.ngControl.dirty));
-    }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }
