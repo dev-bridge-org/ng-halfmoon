@@ -1,5 +1,5 @@
 import {Injectable, OnDestroy} from '@angular/core';
-import {NgControl} from "@angular/forms";
+import {FormControl, NgControl} from "@angular/forms";
 import {Observable, Subject, Subscription} from "rxjs";
 import {distinctUntilChanged} from "rxjs/operators";
 
@@ -14,7 +14,7 @@ export enum ControlStatus {
 
 @Injectable()
 export class ControlService implements OnDestroy {
-  currentControl: NgControl;
+  currentControl: FormControl;
 
   get currentStatus$(): Observable<ControlStatus> {
     return this._currentStatus$.asObservable();
@@ -29,7 +29,7 @@ export class ControlService implements OnDestroy {
     this.subscription?.unsubscribe();
   }
 
-  init(control: NgControl): void {
+  init(control: FormControl): void {
     this.currentControl = control;
     this.subscription = this.currentControl.statusChanges?.pipe(
       distinctUntilChanged()

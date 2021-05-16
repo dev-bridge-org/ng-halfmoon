@@ -2,28 +2,92 @@
   <h2>Form</h2>
 </div>
 <div class="content">
-  <p></p>
+  <h3>Full example</h3>
+  <p>
+    Below you can see what the <code class="code">hm-form-group</code> is capable of.<br/>
+    You can group a label, an input, an error-text and a hint to one field<br/>
+    After this example we will tell you the details about the single parts of a form-group
+  </p>
 </div>
 <div class="card p-0">
   <div class="content">
     <form class="w-400 mw-full">
-      <div class="custom-switch">
-        <input type="checkbox" id="switch-1" [(ngModel)]="required" name="required">
-        <label for="switch-1">Required?</label>
-      </div>
-      <!-- Input -->
       <hm-form-group>
+        <label for="name">Name (Required)</label>
+        <hm-error *ngIf="nameModel.hasError('required')">Field is required</hm-error>
+        <hm-error *ngIf="nameModel.hasError('pattern')">Only alphanumeric characters and underscores allowed.</hm-error>
+        <input hmInput type="text"
+               id="name" name="name"
+               #nameModel="ngModel"
+               [(ngModel)]="name" pattern="[A-Za-z0-9_]+" placeholder="Name" required>
         <hm-hint>
           Only alphanumeric characters and underscores allowed.
         </hm-hint>
-        <input hmInput type="text" id="name" name="name" [(ngModel)]="name" placeholder="Name" [required]="required">
-        <label for="name">Name</label>
-        <hm-error>Field is required</hm-error>
       </hm-form-group>
       <hm-form-group>
+        <label for="name2">Name (Not Required)</label>
         <input hmInput type="text" id="name2" name="name2" [(ngModel)]="name2" placeholder="Name">
-        <label for="name2">Name</label>
       </hm-form-group>
+    </form>
+  </div>
+</div>
+<div class="content">
+  <h3>Connect input with label</h3>
+  <p>
+    You can add a label by adding it inside of the <code class="code">hm-form-group</code>.<br/>
+    Currently you need to connect it to your control via an identifier and adding the <code class="code">for</code> attribute to the label
+    Once your control has the required attribute your label will get a * added to it.
+  </p>
+</div>
+<div class="card p-0">
+  <div class="content">
+    <form class="w-400 mw-full">
+      <hm-form-group>
+        <label for="username">Username</label>
+        <input type="text" hmInput id="username" [formControl]="usernameControl" placeholder="Enter your username">
+      </hm-form-group>
+      <hm-form-group>
+        <label for="usernameRequired">Username</label>
+        <input type="text" hmInput id="usernameRequired" [formControl]="usernameRequiredControl" required placeholder="Enter your username">
+      </hm-form-group>
+    </form>
+  </div>
+</div>
+<div class="content">
+  <h3>Giving hints to the user</h3>
+  <p>
+    You can give the user some information about what he is supposed to enter in your field.<br/>
+    Simply add the <code class="code">hm-hint</code> component inside your <code class="code">hm-form-group</code> and enter your information.
+  </p>
+</div>
+<div class="card p-0">
+  <div class="content">
+    <form class="w-400 mw-full" [formGroup]="form">
+      <hm-form-group>
+        <label for="firstname">Firstname</label>
+        <input type="text" hmInput id="firstname" formControlName="firstname" placeholder="Enter your firstname">
+        <hm-hint>Only alphabetic characters allowed</hm-hint>
+      </hm-form-group>
+    </form>
+  </div>
+</div>
+<div class="content">
+  <h3>Giving feedback to the user</h3>
+  <p>
+    If you want to let the user know what's wrong with his input then you can do this by adding the <code class="code">hm-error</code> component.
+    Inside the component you can declare the error-text that is prompted to the user.
+  </p>
+</div>
+<div class="card p-0">
+  <div class="content">
+    <form class="w-400 mw-full">
+      <form class="w-400 mw-full" [formGroup]="form">
+        <hm-form-group>
+          <label for="familyname">Familyname</label>
+          <hm-error>Only alphabetic characters allowed</hm-error>
+          <input type="text" hmInput id="familyname" formControlName="familyname" placeholder="Enter your familyname">
+        </hm-form-group>
+      </form>
     </form>
   </div>
 </div>
