@@ -1,7 +1,5 @@
 import {
-  AfterViewChecked,
-  Component,
-  ContentChild,
+  ContentChild, Directive,
   ElementRef,
   HostBinding,
   Injector,
@@ -13,24 +11,18 @@ import {InputDirective} from "../input/input.directive";
 import {ControlService, ControlStatus} from "../services/control.service";
 import {Subscription} from "rxjs";
 
-@Component({
-  selector: 'hm-form-group',
-  templateUrl: './form-group.component.html',
-  styleUrls: ['./form-group.component.css'],
-  providers: [ControlService]
-})
-export class FormGroupComponent implements OnInit, AfterViewChecked, OnDestroy {
+@Directive()
+export abstract class FormGroupDirective implements OnInit, OnDestroy {
   @HostBinding('class.form-group') baseClass = true;
   @HostBinding('class.is-invalid') isInvalid = false;
   controlLabel: HTMLLabelElement;
-  control: HTMLInputElement;
 
   @ContentChild(InputDirective) input: InputDirective;
 
   private controlService: ControlService
   private subscription: Subscription
 
-  constructor(private el: ElementRef, private renderer: Renderer2, injector: Injector) {
+  protected constructor(protected el: ElementRef, protected renderer: Renderer2, protected injector: Injector) {
     this.controlService = injector.get(ControlService);
     this.subscription = this.controlService.currentStatus$.subscribe((status) => {
       this.isInvalid = status === ControlStatus.INVALID;
@@ -39,19 +31,19 @@ export class FormGroupComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   ngOnInit(): void {
     this.controlLabel = this.el.nativeElement.firstChild;
-    this.control = this.el.nativeElement.childNodes[2];
-  }
-
-  ngAfterViewChecked() {
-    if(this.control.required && !this.controlLabel.classList.contains('required')) {
-      this.renderer.addClass(this.controlLabel, 'required');
-    } else if (!this.control.required && this.controlLabel.classList.contains('required')) {
-      this.renderer.removeClass(this.controlLabel, 'required');
-    }
   }
 
   ngOnDestroy() {
+    console.log('Destroy');
     this.subscription.unsubscribe();
+  }
+
+  updateLabelPostfix(isRequired: boolean): void {
+    if(isRequired && !this.controlLabel.classList.contains('required')) {
+      this.renderer.addClass(this.controlLabel, 'required');
+    } else if (!isRequired && this.controlLabel.classList.contains('required')) {
+      this.renderer.removeClass(this.controlLabel, 'required');
+    }
   }
 
   get canShowError(): boolean {

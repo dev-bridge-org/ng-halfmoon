@@ -1,6 +1,6 @@
 import {
   Directive,
-  ElementRef, HostBinding, HostListener, Injector,
+  ElementRef, HostBinding, HostListener,
   Input,
   OnChanges, OnDestroy, OnInit,
   Optional,
@@ -20,39 +20,47 @@ export class InputDirective extends Applier implements OnInit, OnChanges, OnDest
   @Input() sizing: Sizing = undefined;
   @HostBinding('class.is-invalid') isInvalid: boolean = false;
 
-  private controlService: ControlService
   private subscription: Subscription
   constructor(
-    private ngControl: NgControl,
+    @Optional() @Self() private ngControl: NgControl,
+    @Optional() private controlService: ControlService,
     el: ElementRef,
-    renderer: Renderer2,
-    injector: Injector
+    renderer: Renderer2
   ) {
     super(el, renderer, 'form-control');
     this.addClass('form-control', this.el);
-    this.controlService = injector.get(ControlService);
   }
 
-  ngOnInit() {
-    this.controlService.init(this.ngControl.control as FormControl);
-    this.controlService.currentStatus$.subscribe((value) => {
-      this.isInvalid = value === ControlStatus.INVALID;
-    });
+  ngOnInit(): void {
+    this.setupControlService();
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges): void {
     if (changes.sizing) {
       this.applyChange(changes.sizing, this.el);
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
+    if(!this.subscription) {
+      return;
+    }
     this.subscription.unsubscribe();
   }
 
   @HostListener('blur')
   changeStatus(): void {
     this.controlService.triggerStatusChange();
+  }
+
+  private setupControlService(): void {
+    if(!this.controlService) {
+      return;
+    }
+    this.controlService.init(this.ngControl.control as FormControl);
+    this.subscription = this.controlService.currentStatus$.subscribe((value) => {
+      this.isInvalid = value === ControlStatus.INVALID;
+    });
   }
 
 }
