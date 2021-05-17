@@ -43,9 +43,12 @@ export class AppModule {
 
 If this shows the button in primary like on the halfmoon-docs you've made everything right.
 
+## Going forward
+Once your done setting everything up you can take a look at the repo there is a link to a documentation-app.
+There you can take a look at how the current-components behave and what you can do to use them.
 
 ## Current Components
-Currently there is only one-component available for this library but more is already in development.
+Currently there are only a few components available for this library but more is already in development.
 You can use halfmoon as you would use it with normal html.
 
 ### Basics

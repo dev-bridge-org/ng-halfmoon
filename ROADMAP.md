@@ -7,6 +7,10 @@ here you can see what we have already implemented and also what we are looking f
 ### Basic Elements
 * Button
 
+### Form Elements
+* Input
+* Select
+
 ## What are we looking for next?
 
 ### Building Blocks
@@ -17,6 +21,4 @@ here you can see what we have already implemented and also what we are looking f
 * Tables
 
 ### Form Elements
-* Input
-* Select
 * Form
