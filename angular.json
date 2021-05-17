@@ -24,6 +24,7 @@
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
+            "configPath": "jest.config.js",
             "tsConfig": "projects/ng-halfmoon/tsconfig.spec.json"
           }
         },

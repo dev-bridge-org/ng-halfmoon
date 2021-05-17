@@ -22,4 +22,9 @@ describe('ErrorComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should add class "invalid-feedback" by default', () => {
+    expect(component.baseClass).toEqual(true);
+    expect(fixture.nativeElement.classList.contains('invalid-feedback')).toEqual(true);
+  });
 });

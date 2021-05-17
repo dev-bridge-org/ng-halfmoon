@@ -1,5 +1,5 @@
 import {
-  Directive,
+  Directive, DoCheck,
   ElementRef, HostBinding, HostListener,
   Input,
   OnChanges, OnDestroy, OnInit,
@@ -16,7 +16,7 @@ import {Subscription} from "rxjs";
 @Directive({
   selector: '[hmInput]'
 })
-export class InputDirective extends Applier implements OnInit, OnChanges, OnDestroy {
+export class InputDirective extends Applier implements OnInit, DoCheck, OnChanges, OnDestroy {
   @Input() sizing: Sizing = undefined;
   @HostBinding('class.is-invalid') isInvalid: boolean = false;
 
@@ -41,6 +41,12 @@ export class InputDirective extends Applier implements OnInit, OnChanges, OnDest
     }
   }
 
+  ngDoCheck() {
+    if (!this.controlService && this.ngControl) {
+      this.isInvalid = !!(this.ngControl.invalid && (this.ngControl.touched || this.ngControl.dirty));
+    }
+  }
+
   ngOnDestroy(): void {
     if(!this.subscription) {
       return;
@@ -50,6 +56,10 @@ export class InputDirective extends Applier implements OnInit, OnChanges, OnDest
 
   @HostListener('blur')
   changeStatus(): void {
+    if (!this.controlService) {
+      return;
+    }
+
     this.controlService.triggerStatusChange();
   }
 

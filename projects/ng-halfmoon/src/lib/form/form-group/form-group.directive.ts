@@ -34,7 +34,6 @@ export abstract class FormGroupDirective implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    console.log('Destroy');
     this.subscription.unsubscribe();
   }
 
