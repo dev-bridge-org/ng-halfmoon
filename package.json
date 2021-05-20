@@ -7,8 +7,8 @@
     "start": "ng serve ng-halfmoon-app",
     "build": "ng build",
     "build:workspace": "npm run build:ng-halfmoon && npm run build:app",
-    "build:app": "ng build ng-halfmoon-app --prod",
-    "build:ng-halfmoon": "ng build ng-halfmoon --prod",
+    "build:app": "ng build ng-halfmoon-app",
+    "build:ng-halfmoon": "ng build ng-halfmoon",
     "test": "ng test",
     "test:ng-halfmoon": "ng test ng-halfmoon",
     "lint": "ng lint"
