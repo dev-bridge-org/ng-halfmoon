@@ -18,8 +18,10 @@
           "configurations": {
             "production": {
               "tsConfig": "projects/ng-halfmoon/tsconfig.lib.prod.json"
-            }
-          }
+            },
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-builders/jest:run",
@@ -104,19 +106,24 @@
                   "maximumError": "10kb"
                 }
               ]
-            }
-          }
+            },
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng-halfmoon-app:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "ng-halfmoon-app:build:production"
+            },
+            "development": {
+              "browserTarget": "ng-halfmoon-app:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -151,14 +158,17 @@
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "projects/ng-halfmoon-app/e2e/protractor.conf.js",
-            "devServerTarget": "ng-halfmoon-app:serve"
+            "protractorConfig": "projects/ng-halfmoon-app/e2e/protractor.conf.js"
           },
           "configurations": {
             "production": {
               "devServerTarget": "ng-halfmoon-app:serve:production"
+            },
+            "development": {
+              "devServerTarget": "ng-halfmoon-app:serve:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         }
       }
     }
