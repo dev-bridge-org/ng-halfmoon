@@ -4,12 +4,14 @@ import {ButtonsComponent} from "./buttons/buttons.component";
 import {InputComponent} from "./input/input.component";
 import {SelectComponent} from "./select/select.component";
 import {FormComponent} from "./form/form.component";
+import {DarkModeToggleComponent} from "./dark-mode-toggle/dark-mode-toggle.component";
 
 const routes: Routes = [
   {path: 'buttons', component: ButtonsComponent},
   {path: 'input', component: InputComponent},
   {path: 'select', component: SelectComponent},
   {path: 'form', component: FormComponent},
+  {path: 'darkMode', component: DarkModeToggleComponent},
   {path: '**', redirectTo: 'buttons'}
 ];
 @NgModule({

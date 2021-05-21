@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {ButtonDirective} from "./basics";
+import {ButtonDirective, DarkModeService} from "./basics";
 import {ErrorComponent, HintComponent, InputContainerComponent, InputDirective, SelectDirective} from './form';
 import {CommonModule} from "@angular/common";
 
@@ -12,6 +12,9 @@ import {CommonModule} from "@angular/common";
     HintComponent,
     ErrorComponent,
     InputContainerComponent
+  ],
+  providers: [
+    DarkModeService
   ],
   imports: [
     CommonModule

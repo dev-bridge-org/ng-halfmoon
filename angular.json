@@ -51,6 +51,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "halfmoon"
+            ],
             "outputPath": "dist/ng-halfmoon-app",
             "index": "projects/ng-halfmoon-app/src/index.html",
             "main": "projects/ng-halfmoon-app/src/main.ts",

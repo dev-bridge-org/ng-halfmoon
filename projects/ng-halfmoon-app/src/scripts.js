@@ -1,1 +1,1 @@
-halfmoon.toggleDarkMode();
+
