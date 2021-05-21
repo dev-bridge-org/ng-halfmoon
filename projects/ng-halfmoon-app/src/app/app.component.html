@@ -10,6 +10,9 @@
     <!-- Navbar nav -->
     <ul class="navbar-nav d-none d-md-flex"> <!-- d-none = display: none, d-md-flex = display: flex on medium screens and up (width > 768px) -->
       <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="darkMode">Dark-Mode</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="buttons">Buttons</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
@@ -23,13 +26,19 @@
       </li>
     </ul>
     <!-- Navbar content (with the dropdown menu) -->
-    <div class="navbar-content d-md-none ml-auto"> <!-- d-md-none = display: none on medium screens and up (width > 768px), ml-auto = margin-left: auto -->
+    <div class="navbar-content ml-auto">
+      <button hmButton (click)="toggle()">
+        <i class="fa fa-moon"></i>
+      </button>
+    </div>
+    <div class="navbar-content d-md-none"> <!-- d-md-none = display: none on medium screens and up (width > 768px), ml-auto = margin-left: auto -->
       <div class="dropdown with-arrow">
         <button class="btn" data-toggle="dropdown" type="button" id="navbar-dropdown-toggle-btn-1">
           Menu
           <i class="fa fa-angle-down" aria-hidden="true"></i>
         </button>
         <div class="dropdown-menu dropdown-menu-right w-200" aria-labelledby="navbar-dropdown-toggle-btn-1"> <!-- w-200 = width: 20rem (200px) -->
+          <a routerLink="darkMode" class="dropdown-item">Dark-Mode</a>
           <a routerLink="buttons" class="dropdown-item">Buttons</a>
           <a routerLink="input" class="dropdown-item">Input</a>
           <a routerLink="select" class="dropdown-item">Select</a>
