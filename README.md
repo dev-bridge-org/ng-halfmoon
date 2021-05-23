@@ -7,7 +7,7 @@ The credits go to the maintainers and contributors of halfmoon because without i
 [Here](https://nostalgic-thompson-e79979.netlify.app/) you can find the current documentation.
 
 ## Contribution, Issues and PRs
-Please take a look at [Contributing](https://github.com/officialMKL/ng-halfmoon/blob/develop/CONTRIBUTING.md)
+Please take a look at [Contributing](https://github.com/dev-bridge-org/ng-halfmoon/blob/develop/CONTRIBUTING.md)
 
 ## Documentation
 The start of the docs will be here in a few days.
