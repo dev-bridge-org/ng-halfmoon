@@ -2,32 +2,40 @@ import {
   Directive,
   DoCheck,
   ElementRef,
-  HostBinding,
+  HostBinding, HostListener,
   Input,
-  OnChanges,
+  OnChanges, OnDestroy, OnInit,
   Optional,
   Renderer2,
   Self,
   SimpleChanges
 } from '@angular/core';
 import {Applier, Sizing} from "../../utils";
-import {NgControl} from "@angular/forms";
+import {FormControl, NgControl} from "@angular/forms";
+import {ControlService, ControlStatus} from "../services/control.service";
+import {Subscription} from "rxjs";
 
 @Directive({
   selector: '[hmSelect]'
 })
-export class SelectDirective extends Applier implements OnChanges, DoCheck {
-  // TODO: redesign sizing due to size property on html-select
+export class SelectDirective extends Applier implements OnInit, OnChanges, DoCheck, OnDestroy {
   @Input() sizing: Sizing = undefined;
   @HostBinding('class.is-invalid') isInvalid: boolean = false;
 
+  private subscription: Subscription
+
   constructor(
     @Optional() @Self() public ngControl: NgControl,
+    @Optional() private controlService: ControlService,
     el: ElementRef,
     renderer: Renderer2
   ) {
     super(el, renderer, 'form-control');
     this.addClass('form-control', this.el);
+  }
+
+  ngOnInit(): void {
+    this.setupControlService();
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -39,6 +47,32 @@ export class SelectDirective extends Applier implements OnChanges, DoCheck {
     if (this.ngControl) {
       this.isInvalid = !!(this.ngControl.invalid && (this.ngControl.touched || this.ngControl.dirty));
     }
+  }
+
+  ngOnDestroy(): void {
+    if(!this.subscription) {
+      return;
+    }
+    this.subscription.unsubscribe();
+  }
+
+  @HostListener('blur')
+  changeStatus(): void {
+    if (!this.controlService) {
+      return;
+    }
+
+    this.controlService.triggerStatusChange();
+  }
+
+  private setupControlService(): void {
+    if(!this.controlService) {
+      return;
+    }
+    this.controlService.init(this.ngControl.control as FormControl);
+    this.subscription = this.controlService.currentStatus$.subscribe((value) => {
+      this.isInvalid = value === ControlStatus.INVALID;
+    });
   }
 
 }

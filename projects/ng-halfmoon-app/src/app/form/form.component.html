@@ -24,17 +24,24 @@
           Only alphanumeric characters and underscores allowed.
         </hm-hint>
       </hm-input-container>
-      <hm-input-container>
-        <label for="name2">Name (Not Required)</label>
-        <input hmInput type="text" id="name2" name="name2" [(ngModel)]="name2" placeholder="Name">
-      </hm-input-container>
+      <hm-select-container>
+        <label for="specialization1">Specialization</label>
+        <hm-error>Mandatory field</hm-error>
+        <select hmSelect [(ngModel)]="specialization" name="specialization" required id="specialization1">
+          <option value="" selected>Select a specialization</option>
+          <option value="frontend">Frontend</option>
+          <option value="backend">Backend</option>
+          <option value="fullstack">Fullstack</option>
+        </select>
+        <hm-hint>Select your specialization</hm-hint>
+      </hm-select-container>
     </form>
   </div>
 </div>
 <div class="content">
   <h3>Connect input with label</h3>
   <p>
-    You can add a label by adding it inside of the <code class="code">hm-input-container</code>.<br/>
+    You can add a label by adding it inside of the <code class="code">hm-[input|select]-container</code>.<br/>
     Currently you need to connect it to your control via an identifier and adding the <code class="code">for</code> attribute to the label
     Once your control has the required attribute your label will get a * added to it.
   </p>
@@ -57,7 +64,7 @@
   <h3>Giving hints to the user</h3>
   <p>
     You can give the user some information about what he is supposed to enter in your field.<br/>
-    Simply add the <code class="code">hm-hint</code> component inside your <code class="code">hm-input-container</code> and enter your information.
+    Simply add the <code class="code">hm-hint</code> component inside your <code class="code">hm-[input|select]-container</code> and enter your information.
   </p>
 </div>
 <div class="card p-0">
@@ -68,6 +75,15 @@
         <input type="text" hmInput id="firstname" formControlName="firstname" placeholder="Enter your firstname">
         <hm-hint>Only alphabetic characters allowed</hm-hint>
       </hm-input-container>
+      <hm-select-container>
+        <label for="specialization">Specialization</label>
+        <select hmSelect formControlName="specialization" id="specialization">
+          <option value="frontend">Frontend</option>
+          <option value="backend">Backend</option>
+          <option value="fullstack">Fullstack</option>
+        </select>
+        <hm-hint>Select your specialization</hm-hint>
+      </hm-select-container>
     </form>
   </div>
 </div>
@@ -87,6 +103,15 @@
           <hm-error>Only alphabetic characters allowed</hm-error>
           <input type="text" hmInput id="familyname" formControlName="familyname" placeholder="Enter your familyname">
         </hm-input-container>
+        <hm-select-container>
+          <label for="gender">Gender</label>
+          <hm-error>Mandatory field</hm-error>
+          <select hmSelect formControlName="gender" required id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="diverse">Diverse</option>
+          </select>
+        </hm-select-container>
       </form>
     </form>
   </div>
