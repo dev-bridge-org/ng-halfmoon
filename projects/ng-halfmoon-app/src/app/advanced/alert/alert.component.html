@@ -1,0 +1,65 @@
+<div class="content">
+  <h2>Alerts</h2>
+</div>
+<div class="content">
+  <h3>Basic Usage</h3>
+  <p>
+    You can display information to the user by adding a alert to the page. Therfore you need to add the <code class="code">hm-alert</code> in your template.<br/>
+    The <code class="code">hm-alert</code> provides a input to set the appearance of the alert. Available: primary, secondary, success and danger.<br/>
+    To display a normal alert without any coloring just remove the appearance-input.
+  </p>
+</div>
+<div class="card p-0">
+  <div class="content">
+    <hm-alert class="mb-5">
+      <h4 class="alert-heading">Default alert</h4>
+      This is a default alert with some content and <a href="#" class="alert-link">a link</a>.
+    </hm-alert>
+    <hm-alert appearance="primary" class="mb-5">
+      <h4 class="alert-heading">Primary alert</h4>
+      This is a primary alert with some content and <a href="#" class="alert-link">a link</a>.
+    </hm-alert>
+    <hm-alert appearance="success" class="mb-5">
+      <h4 class="alert-heading">Success alert</h4>
+      This is a success alert with some content and <a href="#" class="alert-link">a link</a>.
+    </hm-alert>
+    <hm-alert appearance="secondary" class="mb-5">
+      <h4 class="alert-heading">Secondary alert</h4>
+      This is a secondary alert with some content and <a href="#" class="alert-link">a link</a>.
+    </hm-alert>
+    <hm-alert appearance="danger">
+      <h4 class="alert-heading">Danger alert</h4>
+      This is a danger alert with some content and <a href="#" class="alert-link">a link</a>.
+    </hm-alert>
+  </div>
+</div>
+<div class="content">
+  <h3>Dismissable Alerts</h3>
+  <p>
+    As you don't want to display the information all the time you can simply dismiss the alerts by adding <code class="code">[dismissable]="true"</code> to your alert.
+  </p>
+</div>
+<div class="card p-0">
+  <div class="content">
+    <hm-alert [dismissable]="true" class="mb-5">
+      <h4 class="alert-heading">Default alert</h4>
+      This is a default alert with some content and <a href="#" class="alert-link">a link</a>.
+    </hm-alert>
+    <hm-alert appearance="primary" [dismissable]="true" class="mb-5">
+      <h4 class="alert-heading">Primary alert</h4>
+      This is a primary alert with some content and <a href="#" class="alert-link">a link</a>.
+    </hm-alert>
+    <hm-alert appearance="success" [dismissable]="true" class="mb-5">
+      <h4 class="alert-heading">Success alert</h4>
+      This is a success alert with some content and <a href="#" class="alert-link">a link</a>.
+    </hm-alert>
+    <hm-alert appearance="secondary" [dismissable]="true" class="mb-5">
+      <h4 class="alert-heading">Secondary alert</h4>
+      This is a secondary alert with some content and <a href="#" class="alert-link">a link</a>.
+    </hm-alert>
+    <hm-alert appearance="danger" [dismissable]="true">
+      <h4 class="alert-heading">Danger alert</h4>
+      This is a danger alert with some content and <a href="#" class="alert-link">a link</a>.
+    </hm-alert>
+  </div>
+</div>

@@ -22,3 +22,9 @@ here you can see what we have already implemented and also what we are looking f
 
 ### Form Elements
 * Form
+
+### Advanced Elements
+* Alerts
+* Progress
+* Toasts
+* Modal
