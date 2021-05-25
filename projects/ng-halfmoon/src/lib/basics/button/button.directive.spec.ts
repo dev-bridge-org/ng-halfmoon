@@ -1,4 +1,4 @@
-import {Appearance, ButtonDirective, Shape} from './button.directive';
+import {ButtonAppearance, ButtonDirective, Shape} from './button.directive';
 import {Component, DebugElement} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
@@ -8,7 +8,7 @@ import {Sizing} from "../../utils";
   template: `<button hmButton [appearance]="appearance" [size]="size" [shape]="shape" [disabled]="disabled"></button>`
 })
 class ButtonTestComponent {
-  appearance: Appearance = undefined;
+  appearance: ButtonAppearance = undefined;
   size: Sizing = undefined;
   shape: Shape = undefined;
   disabled: boolean = false;

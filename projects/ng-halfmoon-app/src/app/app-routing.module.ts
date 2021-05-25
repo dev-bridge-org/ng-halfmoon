@@ -5,6 +5,7 @@ import {InputComponent} from "./input/input.component";
 import {SelectComponent} from "./select/select.component";
 import {FormComponent} from "./form/form.component";
 import {DarkModeToggleComponent} from "./dark-mode-toggle/dark-mode-toggle.component";
+import {AlertComponent} from './advanced/alert/alert.component';
 
 const routes: Routes = [
   {path: 'buttons', component: ButtonsComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'select', component: SelectComponent},
   {path: 'form', component: FormComponent},
   {path: 'darkMode', component: DarkModeToggleComponent},
+  {path: 'alerts', component: AlertComponent},
   {path: '**', redirectTo: 'buttons'}
 ];
 @NgModule({

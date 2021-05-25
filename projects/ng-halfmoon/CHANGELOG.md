@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [xxx] - tbd.
+### Added
+* `hm-alert` added to display information to the user.
+* `Appearance` added to utils for all purposes
+* `hm-select-container` added for displaying selects with labels
+
+### Changed
+* `Appearance` (inside `hmButton`) renamed to `ButtonAppearance`
+
 ## [0.2.0] - 2021-05-17
 ### Added
 * New Controls added
