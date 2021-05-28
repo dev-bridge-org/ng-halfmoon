@@ -25,6 +25,7 @@
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@types/halfmoon": "^1.0.0",
     "halfmoon": "^1.1.1",
+    "highlight.js": "^10.7.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"

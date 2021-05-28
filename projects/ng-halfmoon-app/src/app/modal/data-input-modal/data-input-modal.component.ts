@@ -8,6 +8,7 @@ interface Test {
 @Component({
   selector: 'app-data-input-modal',
   template: `
+    <h5 class="modal-title">Modal with Data send to the modal</h5>
     <p>
       {{testData}}
     </p>

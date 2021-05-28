@@ -14,6 +14,9 @@
   <div class="content w-400 mw-full">
     <button hmButton appearance="primary" (click)="openStandard()">Open the Modal</button>
   </div>
+  <app-code-collapse title="Calling the Modal" language="ts" [code]="standardCall"></app-code-collapse>
+  <app-code-collapse title="ModalComponent (TS)" language="ts" [code]="standardModalCode"></app-code-collapse>
+  <app-code-collapse title="ModalComponent (HTML)" language="html" [code]="standardModalHtml"></app-code-collapse>
 </div>
 
 <div class="content">
@@ -28,6 +31,9 @@
   <div class="content w-400 mw-full">
     <button hmButton appearance="primary" (click)="openWithDismiss()">Open with Dismiss</button>
   </div>
+  <app-code-collapse title="Calling the Modal" language="ts" [code]="dismissCall"></app-code-collapse>
+  <app-code-collapse title="ModalComponent (TS)" language="ts" [code]="dismissModalCode"></app-code-collapse>
+  <app-code-collapse title="ModalComponent (HTML)" language="html" [code]="dismissModalHtml"></app-code-collapse>
 </div>
 
 <div class="content">
@@ -43,6 +49,9 @@
   <div class="content w-400 mw-full">
     <button hmButton appearance="primary" (click)="openWithCustomData()">Open with Custom Data</button>
   </div>
+  <app-code-collapse title="Calling the Modal" language="ts" [code]="dataInputCall"></app-code-collapse>
+  <app-code-collapse title="ModalComponent (TS)" language="ts" [code]="dataInputModalCode"></app-code-collapse>
+  <app-code-collapse title="ModalComponent (HTML)" language="html" [code]="dataInputModalHtml"></app-code-collapse>
 </div>
 <div class="content">
   <h3>Return Data on close</h3>
@@ -57,4 +66,7 @@
   <div class="content w-400 mw-full">
     <button hmButton appearance="primary" (click)="openWithReturnedData()">Open with Data returning</button>
   </div>
+  <app-code-collapse title="Calling the Modal" language="ts" [code]="dataOutputCall"></app-code-collapse>
+  <app-code-collapse title="ModalComponent (TS)" language="ts" [code]="dataOutputModalCode"></app-code-collapse>
+  <app-code-collapse title="ModalComponent (HTML)" language="html" [code]="dataOutputModalHtml"></app-code-collapse>
 </div>

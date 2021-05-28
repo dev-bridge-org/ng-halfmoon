@@ -16,6 +16,7 @@ import { BasicModalComponent } from './modal/basic-modal/basic-modal.component';
 import { DismissModalComponent } from './modal/dismiss-modal/dismiss-modal.component';
 import { DataInputModalComponent } from './modal/data-input-modal/data-input-modal.component';
 import { DataOutputModalComponent } from './modal/data-output-modal/data-output-modal.component';
+import {DocHelperModule} from "./doc-helper/doc-helper.module";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { DataOutputModalComponent } from './modal/data-output-modal/data-output-
     FormsModule,
     AppRoutingModule,
     NgHalfmoonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DocHelperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

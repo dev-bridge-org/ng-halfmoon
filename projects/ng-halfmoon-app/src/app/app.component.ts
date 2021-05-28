@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import * as halfmoon from 'halfmoon';
+import {Component} from '@angular/core';
 import {DarkModeService} from "ng-halfmoon";
 import {Observable} from "rxjs";
 
