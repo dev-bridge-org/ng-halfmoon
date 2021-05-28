@@ -22,7 +22,7 @@ export class ModalService {
     private _injector: Injector
   ) {}
 
-  createModal<T>(component: Type<T>, config?: ModalConfig): ModalRef<T> {
+  createModal<T, D>(component: Type<T>, config?: ModalConfig, data?: D): ModalRef<T> {
     this.modalRef = new ModalRef<T>();
 
     this.contentRef = this.createContent(component);
@@ -31,6 +31,7 @@ export class ModalService {
     this.containerRef = this.createContainer();
     this.containerRef.instance.id = config?.id ?? `modal-${this.counter}`
     this.containerRef.instance.defaultDismiss = config?.defaultDismiss ?? false;
+    this.modalRef.modalId = config?.id ?? `modal-${this.counter}`;
 
     this.modalRef.close = () => {
       this.removeModal();
@@ -43,7 +44,7 @@ export class ModalService {
 
     selectedElement?.appendChild(this.containerRef.location.nativeElement);
     this.containerRef.instance.isShown = true;
-
+    this.counter++;
     return this.modalRef;
   }
 

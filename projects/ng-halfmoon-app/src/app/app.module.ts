@@ -11,6 +11,7 @@ import { SelectComponent } from './select/select.component';
 import { FormComponent } from './form/form.component';
 import { DarkModeToggleComponent } from './dark-mode-toggle/dark-mode-toggle.component';
 import { AlertComponent } from './advanced/alert/alert.component';
+import { TestModalComponent } from './test-modal/test-modal.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AlertComponent } from './advanced/alert/alert.component';
     SelectComponent,
     FormComponent,
     DarkModeToggleComponent,
-    AlertComponent
+    AlertComponent,
+    TestModalComponent
   ],
   imports: [
     BrowserModule,

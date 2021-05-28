@@ -1,5 +1,4 @@
-export class ModalConfig<T = Record<string, unknown>> {
+export class ModalConfig {
   id?: string;
   defaultDismiss?: boolean;
-  data?: T;
 }
