@@ -20,12 +20,13 @@ describe('DarkModeService', () => {
   it('should change to dark-mode', waitForAsync(() => {
     service.darkModeEnabled$.pipe(take(1)).subscribe((value) => {
       expect(value).toEqual(false);
-    })
+    });
 
     service.darkModeEnabled$.pipe(skip(1), take(1)).subscribe((value) => {
       expect(value).toEqual(true);
-    })
+    });
 
+    service.toggleDarkMode();
     service.toggleDarkMode();
   }));
 
