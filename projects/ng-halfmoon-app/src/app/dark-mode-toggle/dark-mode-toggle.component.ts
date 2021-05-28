@@ -1,17 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {DarkModeService} from "ng-halfmoon";
 
 @Component({
   selector: 'app-dark-mode-toggle',
   templateUrl: './dark-mode-toggle.component.html',
-  styleUrls: ['./dark-mode-toggle.component.css']
+  styleUrls: [],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DarkModeToggleComponent implements OnInit {
+export class DarkModeToggleComponent {
 
   constructor(private darkModeService: DarkModeService) { }
-
-  ngOnInit(): void {
-  }
 
   toggle(): void {
     this.darkModeService.toggleDarkMode();
