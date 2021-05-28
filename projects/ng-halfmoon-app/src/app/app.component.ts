@@ -8,8 +8,6 @@ import {Observable} from "rxjs";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng-halfmoon-app';
-
   constructor(private darkMode: DarkModeService) {
   }
 

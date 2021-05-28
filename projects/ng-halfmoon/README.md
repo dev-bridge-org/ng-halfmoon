@@ -4,7 +4,7 @@ This is the angular-library for [halfmoon](https://www.gethalfmoon.com/)
 ## Installation
 You can install `ng-halfmoon` via npm
 ```bash
-npm install halfmoon @fortawesome/fontawesome-free ng-halfmoon
+npm install halfmoon @types/halfmoon @fortawesome/fontawesome-free ng-halfmoon
 ```
 
 ## Setup
