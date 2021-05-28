@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'form', component: FormComponent},
   {path: 'darkMode', component: DarkModeToggleComponent},
   {path: 'alerts', component: AlertComponent},
-  {path: 'modals', component: ModalComponent}
+  {path: 'modals', loadChildren: () => import('./modal/modal.module').then(m => m.ModalModule)}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes, {useHash: true})],
