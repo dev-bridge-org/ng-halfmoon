@@ -10,7 +10,8 @@
     "build:ng-halfmoon": "ng build ng-halfmoon",
     "test": "ng test",
     "test:ng-halfmoon": "ng test ng-halfmoon",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "ngcc": "ngcc"
   },
   "private": true,
   "dependencies": {
