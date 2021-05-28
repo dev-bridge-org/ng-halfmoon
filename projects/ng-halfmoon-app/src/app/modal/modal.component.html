@@ -1,0 +1,72 @@
+<div class="content">
+  <h2>Modals</h2>
+</div>
+<div class="content">
+  <h3>Basic Usage</h3>
+  <p>
+    Basically you need to create a <code class="code">CustomModalComponent</code> that you will paste into a modal-container.<br/>
+    Next you need to inject the <code class="code">ModalService</code> to create this modal on the fly.<br/>
+    Therefore you have to call the <code class="code">createModal</code>-Method on the service.<br/>
+    You'll paste your custom component into the method like so: <code class="code">modalService.createModal(CustomModalComponent)</code>. <br/>
+  </p>
+</div>
+<div class="card p-0">
+  <div class="content w-400 mw-full">
+    <button hmButton appearance="primary" (click)="openStandard()">Open the Modal</button>
+  </div>
+  <app-code-collapse title="Calling the Modal" language="ts" [code]="standardCall"></app-code-collapse>
+  <app-code-collapse title="ModalComponent (TS)" language="ts" [code]="standardModalCode"></app-code-collapse>
+  <app-code-collapse title="ModalComponent (HTML)" language="html" [code]="standardModalHtml"></app-code-collapse>
+</div>
+
+<div class="content">
+  <h3>Dismiss</h3>
+  <p>
+    By default every modal is dismissable by clicking outside of the modal.<br/>
+    You can alternatively add a flag to the <code class="code">createModal</code>-Method to add the default dismiss-button.<br/>
+    You need to add it as follows <code class="code">createModal(Cmp, {{'{defaultDismiss: true}'}})</code>
+  </p>
+</div>
+<div class="card p-0">
+  <div class="content w-400 mw-full">
+    <button hmButton appearance="primary" (click)="openWithDismiss()">Open with Dismiss</button>
+  </div>
+  <app-code-collapse title="Calling the Modal" language="ts" [code]="dismissCall"></app-code-collapse>
+  <app-code-collapse title="ModalComponent (TS)" language="ts" [code]="dismissModalCode"></app-code-collapse>
+  <app-code-collapse title="ModalComponent (HTML)" language="html" [code]="dismissModalHtml"></app-code-collapse>
+</div>
+
+<div class="content">
+  <h3>Inject custom Data</h3>
+  <p>
+    When you are creating a modal you can inject custom data into your modal-component.<br/>
+    You will need to add the data-property inside of the modal-options. The property is variable so you can send a simple value or a complex object.<br/>
+    You need to add it as follows <code class="code">createModal(Cmp, {{'{data: {name: "John"}'}}'}})</code>
+    Inside of the ModalComponent you can then inject the data via the <code class="code">MODAL_DATA</code>-Token as follows <code class="code">constructor(@Inject(MODAL_DATA) private data: Record&lt;string, unknown&gt;)</code>
+  </p>
+</div>
+<div class="card p-0">
+  <div class="content w-400 mw-full">
+    <button hmButton appearance="primary" (click)="openWithCustomData()">Open with Custom Data</button>
+  </div>
+  <app-code-collapse title="Calling the Modal" language="ts" [code]="dataInputCall"></app-code-collapse>
+  <app-code-collapse title="ModalComponent (TS)" language="ts" [code]="dataInputModalCode"></app-code-collapse>
+  <app-code-collapse title="ModalComponent (HTML)" language="html" [code]="dataInputModalHtml"></app-code-collapse>
+</div>
+<div class="content">
+  <h3>Return Data on close</h3>
+  <p>
+    Sometimes modals are created to input some sort of data or to ask the user if he is leaving the site on purpose. <br/>
+    Therefore you will need to return the outcome of the action. You can simply save the <code class="code">ModalRef</code> of <code class="code">createModal</code> into a variable to use it later.<br/>
+    Then you will need to subscribe onto the <code class="code">afterClosed</code>-Event to apply your logic once the modal is closed.<br/>
+    Via the <code class="code">afterClosed</code> you can get data that you are passing from your modal. Inside the modal you can call the <code class="code">modalRef.close</code> with a parameter to send your data.
+  </p>
+</div>
+<div class="card p-0">
+  <div class="content w-400 mw-full">
+    <button hmButton appearance="primary" (click)="openWithReturnedData()">Open with Data returning</button>
+  </div>
+  <app-code-collapse title="Calling the Modal" language="ts" [code]="dataOutputCall"></app-code-collapse>
+  <app-code-collapse title="ModalComponent (TS)" language="ts" [code]="dataOutputModalCode"></app-code-collapse>
+  <app-code-collapse title="ModalComponent (HTML)" language="html" [code]="dataOutputModalHtml"></app-code-collapse>
+</div>

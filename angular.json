@@ -52,7 +52,8 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies": [
-              "halfmoon"
+              "halfmoon",
+              "highlight.js"
             ],
             "outputPath": "dist/ng-halfmoon-app",
             "index": "projects/ng-halfmoon-app/src/index.html",
@@ -66,6 +67,7 @@
             "styles": [
               "node_modules/halfmoon/css/halfmoon.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css",
+              "node_modules/highlight.js/styles/github.css",
               "projects/ng-halfmoon-app/src/styles.css"
             ],
             "scripts": [

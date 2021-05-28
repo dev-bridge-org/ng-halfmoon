@@ -11,6 +11,7 @@ import { SelectComponent } from './select/select.component';
 import { FormComponent } from './form/form.component';
 import { DarkModeToggleComponent } from './dark-mode-toggle/dark-mode-toggle.component';
 import { AlertComponent } from './advanced/alert/alert.component';
+import {DocHelperModule} from "./doc-helper/doc-helper.module";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AlertComponent } from './advanced/alert/alert.component';
     FormsModule,
     AppRoutingModule,
     NgHalfmoonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DocHelperModule
   ],
   providers: [],
   bootstrap: [AppComponent]
