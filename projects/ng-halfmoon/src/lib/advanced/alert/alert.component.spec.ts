@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AlertComponent } from './alert.component';
+import {AlertComponent} from './alert.component';
 import {Component, DebugElement} from '@angular/core';
 import {Appearance} from '../../utils';
 import {By} from '@angular/platform-browser';
@@ -26,9 +26,8 @@ describe('AlertComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AlertTestComponent, AlertComponent ]
-    })
-    .compileComponents();
+      declarations: [AlertTestComponent, AlertComponent]
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -42,46 +41,70 @@ describe('AlertComponent', () => {
   });
 
   it('should add base-class "alert" to the alert', () => {
-    expect(queryContainer(fixture.debugElement).nativeElement.classList.contains('alert')).toEqual(true);
-  })
+    expect(
+      queryContainer(fixture.debugElement).nativeElement.classList.contains(
+        'alert'
+      )
+    ).toEqual(true);
+  });
 
   describe('appearance', () => {
     it('should add "alert-primary" to the alert', () => {
       component.appearance = 'primary';
       fixture.detectChanges();
 
-      expect(queryContainer(fixture.debugElement).nativeElement.classList.contains('alert-primary')).toEqual(true);
-    })
+      expect(
+        queryContainer(fixture.debugElement).nativeElement.classList.contains(
+          'alert-primary'
+        )
+      ).toEqual(true);
+    });
     it('should add "alert-secondary" to the alert', () => {
       component.appearance = 'secondary';
       fixture.detectChanges();
 
-      expect(queryContainer(fixture.debugElement).nativeElement.classList.contains('alert-secondary')).toEqual(true);
-    })
+      expect(
+        queryContainer(fixture.debugElement).nativeElement.classList.contains(
+          'alert-secondary'
+        )
+      ).toEqual(true);
+    });
     it('should add "alert-success" to the alert', () => {
       component.appearance = 'success';
       fixture.detectChanges();
 
-      expect(queryContainer(fixture.debugElement).nativeElement.classList.contains('alert-success')).toEqual(true);
-    })
+      expect(
+        queryContainer(fixture.debugElement).nativeElement.classList.contains(
+          'alert-success'
+        )
+      ).toEqual(true);
+    });
     it('should add "alert-danger" to the alert', () => {
       component.appearance = 'danger';
       fixture.detectChanges();
 
-      expect(queryContainer(fixture.debugElement).nativeElement.classList.contains('alert-danger')).toEqual(true);
-    })
+      expect(
+        queryContainer(fixture.debugElement).nativeElement.classList.contains(
+          'alert-danger'
+        )
+      ).toEqual(true);
+    });
   });
 
-  describe('dismissable', () =>  {
+  describe('dismissable', () => {
     it('should show dismissable button', () => {
       component.dismissable = true;
       fixture.detectChanges();
 
-      expect(queryContainer(fixture.debugElement).query(By.css('.close')).name).toEqual('button');
+      expect(
+        queryContainer(fixture.debugElement).query(By.css('.close')).name
+      ).toEqual('button');
     });
 
     it('should not show dismissable button', () => {
-      expect(queryContainer(fixture.debugElement).query(By.css('.close'))).toBeNull();
+      expect(
+        queryContainer(fixture.debugElement).query(By.css('.close'))
+      ).toBeNull();
     });
   });
 });

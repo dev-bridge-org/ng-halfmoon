@@ -1,7 +1,7 @@
 import {TestBed, waitForAsync} from '@angular/core/testing';
 
 import {ControlService, ControlStatus} from './control.service';
-import {FormControl, Validators} from "@angular/forms";
+import {FormControl, Validators} from '@angular/forms';
 
 describe('ControlService', () => {
   let service: ControlService;
@@ -17,36 +17,45 @@ describe('ControlService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should initialize correctly', waitForAsync(() => {
-    service.currentStatus$.subscribe((currentStatus) => {
-      expect(currentStatus).toEqual(ControlStatus.NONE);
-    });
+  it(
+    'should initialize correctly',
+    waitForAsync(() => {
+      service.currentStatus$.subscribe((currentStatus) => {
+        expect(currentStatus).toEqual(ControlStatus.NONE);
+      });
 
-    service.init(new FormControl('', Validators.required));
+      service.init(new FormControl('', Validators.required));
 
-    expect(service.currentControl).not.toBeNull();
-    expect(service.currentControl).not.toBeUndefined();
-  }));
+      expect(service.currentControl).not.toBeNull();
+      expect(service.currentControl).not.toBeUndefined();
+    })
+  );
 
-  it('should have invalid-state once touched and required', waitForAsync(() => {
-    service.currentStatus$.subscribe((currentStatus) => {
-      expect(currentStatus).toEqual(ControlStatus.INVALID);
-    });
+  it(
+    'should have invalid-state once touched and required',
+    waitForAsync(() => {
+      service.currentStatus$.subscribe((currentStatus) => {
+        expect(currentStatus).toEqual(ControlStatus.INVALID);
+      });
 
-    const control = new FormControl('', Validators.required);
-    control.markAsTouched();
+      const control = new FormControl('', Validators.required);
+      control.markAsTouched();
 
-    service.init(control);
-  }));
+      service.init(control);
+    })
+  );
 
-  it('should have valid-state once touched and with no validations', waitForAsync(() => {
-    service.currentStatus$.subscribe((currentStatus) => {
-      expect(currentStatus).toEqual(ControlStatus.VALID);
-    });
+  it(
+    'should have valid-state once touched and with no validations',
+    waitForAsync(() => {
+      service.currentStatus$.subscribe((currentStatus) => {
+        expect(currentStatus).toEqual(ControlStatus.VALID);
+      });
 
-    const control = new FormControl('');
-    control.markAsTouched();
+      const control = new FormControl('');
+      control.markAsTouched();
 
-    service.init(control);
-  }));
+      service.init(control);
+    })
+  );
 });

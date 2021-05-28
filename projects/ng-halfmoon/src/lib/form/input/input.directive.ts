@@ -1,26 +1,34 @@
 import {
-  Directive, DoCheck,
-  ElementRef, HostBinding, HostListener,
+  Directive,
+  DoCheck,
+  ElementRef,
+  HostBinding,
+  HostListener,
   Input,
-  OnChanges, OnDestroy, OnInit,
+  OnChanges,
+  OnDestroy,
+  OnInit,
   Optional,
   Renderer2,
   Self,
   SimpleChanges
 } from '@angular/core';
-import {Applier, Sizing} from "../../utils";
-import {FormControl, NgControl} from "@angular/forms";
-import {ControlService, ControlStatus} from "../services/control.service";
-import {Subscription} from "rxjs";
+import {Applier, Sizing} from '../../utils';
+import {FormControl, NgControl} from '@angular/forms';
+import {ControlService, ControlStatus} from '../services/control.service';
+import {Subscription} from 'rxjs';
 
 @Directive({
   selector: '[hmInput]'
 })
-export class InputDirective extends Applier implements OnInit, DoCheck, OnChanges, OnDestroy {
+export class InputDirective
+  extends Applier
+  implements OnInit, DoCheck, OnChanges, OnDestroy
+{
   @Input() sizing: Sizing = undefined;
   @HostBinding('class.is-invalid') isInvalid: boolean = false;
 
-  private subscription: Subscription
+  private subscription: Subscription;
   constructor(
     @Optional() @Self() private ngControl: NgControl,
     @Optional() private controlService: ControlService,
@@ -43,12 +51,15 @@ export class InputDirective extends Applier implements OnInit, DoCheck, OnChange
 
   ngDoCheck() {
     if (!this.controlService && this.ngControl) {
-      this.isInvalid = !!(this.ngControl.invalid && (this.ngControl.touched || this.ngControl.dirty));
+      this.isInvalid = !!(
+        this.ngControl.invalid &&
+        (this.ngControl.touched || this.ngControl.dirty)
+      );
     }
   }
 
   ngOnDestroy(): void {
-    if(!this.subscription) {
+    if (!this.subscription) {
       return;
     }
     this.subscription.unsubscribe();
@@ -64,13 +75,14 @@ export class InputDirective extends Applier implements OnInit, DoCheck, OnChange
   }
 
   private setupControlService(): void {
-    if(!this.controlService) {
+    if (!this.controlService) {
       return;
     }
     this.controlService.init(this.ngControl.control as FormControl);
-    this.subscription = this.controlService.currentStatus$.subscribe((value) => {
-      this.isInvalid = value === ControlStatus.INVALID;
-    });
+    this.subscription = this.controlService.currentStatus$.subscribe(
+      (value) => {
+        this.isInvalid = value === ControlStatus.INVALID;
+      }
+    );
   }
-
 }

@@ -1,12 +1,17 @@
 import {InputDirective} from './input.directive';
-import {Component, DebugElement} from "@angular/core";
-import {Sizing} from "../../utils";
-import {ComponentFixture, TestBed} from "@angular/core/testing";
-import {By} from "@angular/platform-browser";
-import {FormsModule} from "@angular/forms";
+import {Component, DebugElement} from '@angular/core';
+import {Sizing} from '../../utils';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {By} from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms';
 
 @Component({
-  template: `<input hmInput [sizing]="sizing" [(ngModel)]="testModel" [required]="required"/>`
+  template: `<input
+    hmInput
+    [sizing]="sizing"
+    [(ngModel)]="testModel"
+    [required]="required"
+  />`
 })
 class InputTestComponent {
   sizing: Sizing = undefined;
@@ -14,11 +19,16 @@ class InputTestComponent {
   required: boolean = false;
 }
 
-function getElementByDirective(fixture: ComponentFixture<InputTestComponent>): DebugElement {
+function getElementByDirective(
+  fixture: ComponentFixture<InputTestComponent>
+): DebugElement {
   return fixture.debugElement.query(By.directive(InputDirective));
 }
 
-function dispatchInputEvent(fixture: ComponentFixture<InputTestComponent>, input: string): void {
+function dispatchInputEvent(
+  fixture: ComponentFixture<InputTestComponent>,
+  input: string
+): void {
   const el = getElementByDirective(fixture).nativeElement;
   el.value = input;
   el.dispatchEvent(new Event('input'));
@@ -40,18 +50,34 @@ describe('InputDirective', () => {
   describe('sizing', () => {
     it('should apply no size class', () => {
       fixture.detectChanges();
-      expect(getElementByDirective(fixture).nativeElement.classList.contains('form-control-lg')).toEqual(false);
-      expect(getElementByDirective(fixture).nativeElement.classList.contains('form-control-sm')).toEqual(false);
+      expect(
+        getElementByDirective(fixture).nativeElement.classList.contains(
+          'form-control-lg'
+        )
+      ).toEqual(false);
+      expect(
+        getElementByDirective(fixture).nativeElement.classList.contains(
+          'form-control-sm'
+        )
+      ).toEqual(false);
     });
     it('should apply "form-control-lg"', () => {
       component.sizing = 'lg';
       fixture.detectChanges();
-      expect(getElementByDirective(fixture).nativeElement.classList.contains('form-control-lg')).toEqual(true);
+      expect(
+        getElementByDirective(fixture).nativeElement.classList.contains(
+          'form-control-lg'
+        )
+      ).toEqual(true);
     });
     it('should apply "form-control-sm"', () => {
       component.sizing = 'sm';
       fixture.detectChanges();
-      expect(getElementByDirective(fixture).nativeElement.classList.contains('form-control-sm')).toEqual(true);
+      expect(
+        getElementByDirective(fixture).nativeElement.classList.contains(
+          'form-control-sm'
+        )
+      ).toEqual(true);
     });
   });
   describe('validation', () => {

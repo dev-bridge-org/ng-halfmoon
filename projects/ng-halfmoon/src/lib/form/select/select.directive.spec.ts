@@ -1,14 +1,19 @@
-import {Component, DebugElement} from "@angular/core";
-import {Sizing} from "../../utils";
-import {ComponentFixture, TestBed} from "@angular/core/testing";
-import {By} from "@angular/platform-browser";
-import {FormsModule} from "@angular/forms";
-import {SelectDirective} from "./select.directive";
-import {TestUtils} from "../../utils/test-utils";
+import {Component} from '@angular/core';
+import {Sizing} from '../../utils';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {By} from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms';
+import {SelectDirective} from './select.directive';
+import {TestUtils} from '../../utils/test-utils';
 
 @Component({
   template: `
-    <select hmSelect [sizing]="sizing" [(ngModel)]="testModel" [required]="required">
+    <select
+      hmSelect
+      [sizing]="sizing"
+      [(ngModel)]="testModel"
+      [required]="required"
+    >
       <option [value]="null">please select...</option>
       <option value="test">Test</option>
     </select>
@@ -20,8 +25,14 @@ class SelectTestComponent {
   required: boolean = false;
 }
 
-function dispatchSelectEvent(fixture: ComponentFixture<SelectTestComponent>, input: string): void {
-  const el = TestUtils.getElementByDirective(fixture, By.directive(SelectDirective)).nativeElement;
+function dispatchSelectEvent(
+  fixture: ComponentFixture<SelectTestComponent>,
+  input: string
+): void {
+  const el = TestUtils.getElementByDirective(
+    fixture,
+    By.directive(SelectDirective)
+  ).nativeElement;
   el.value = input;
   el.dispatchEvent(new Event('change'));
 }
@@ -42,18 +53,38 @@ describe('SelectDirective', () => {
   describe('sizing', () => {
     it('should apply no size class', () => {
       fixture.detectChanges();
-      expect(TestUtils.getElementByDirective(fixture, By.directive(SelectDirective)).nativeElement.classList.contains('form-control-lg')).toEqual(false);
-      expect(TestUtils.getElementByDirective(fixture, By.directive(SelectDirective)).nativeElement.classList.contains('form-control-sm')).toEqual(false);
+      expect(
+        TestUtils.getElementByDirective(
+          fixture,
+          By.directive(SelectDirective)
+        ).nativeElement.classList.contains('form-control-lg')
+      ).toEqual(false);
+      expect(
+        TestUtils.getElementByDirective(
+          fixture,
+          By.directive(SelectDirective)
+        ).nativeElement.classList.contains('form-control-sm')
+      ).toEqual(false);
     });
     it('should apply "form-control-lg"', () => {
       component.sizing = 'lg';
       fixture.detectChanges();
-      expect(TestUtils.getElementByDirective(fixture, By.directive(SelectDirective)).nativeElement.classList.contains('form-control-lg')).toEqual(true);
+      expect(
+        TestUtils.getElementByDirective(
+          fixture,
+          By.directive(SelectDirective)
+        ).nativeElement.classList.contains('form-control-lg')
+      ).toEqual(true);
     });
     it('should apply "form-control-sm"', () => {
       component.sizing = 'sm';
       fixture.detectChanges();
-      expect(TestUtils.getElementByDirective(fixture, By.directive(SelectDirective)).nativeElement.classList.contains('form-control-sm')).toEqual(true);
+      expect(
+        TestUtils.getElementByDirective(
+          fixture,
+          By.directive(SelectDirective)
+        ).nativeElement.classList.contains('form-control-sm')
+      ).toEqual(true);
     });
   });
   describe('validation', () => {
@@ -62,7 +93,10 @@ describe('SelectDirective', () => {
       fixture.detectChanges();
       dispatchSelectEvent(fixture, '');
       fixture.detectChanges();
-      const classes = TestUtils.getElementByDirective(fixture, By.directive(SelectDirective)).nativeElement.classList;
+      const classes = TestUtils.getElementByDirective(
+        fixture,
+        By.directive(SelectDirective)
+      ).nativeElement.classList;
       expect(classes.contains('is-invalid')).toEqual(false);
     });
 
@@ -71,7 +105,10 @@ describe('SelectDirective', () => {
       fixture.detectChanges();
       dispatchSelectEvent(fixture, '');
       fixture.detectChanges();
-      const classes = TestUtils.getElementByDirective(fixture, By.directive(SelectDirective)).nativeElement.classList;
+      const classes = TestUtils.getElementByDirective(
+        fixture,
+        By.directive(SelectDirective)
+      ).nativeElement.classList;
       expect(classes.contains('is-invalid')).toEqual(true);
     });
   });

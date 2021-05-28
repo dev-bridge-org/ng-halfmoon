@@ -1,11 +1,25 @@
-import {Directive, ElementRef, Input, OnChanges, Renderer2, SimpleChange, SimpleChanges} from '@angular/core';
-import {Applier, Sizing} from "../../utils";
+import {
+  Directive,
+  ElementRef,
+  Input,
+  OnChanges,
+  Renderer2,
+  SimpleChange,
+  SimpleChanges
+} from '@angular/core';
+import {Applier, Sizing} from '../../utils';
 
 export type Shape = 'rounded' | 'square' | undefined;
-export type ButtonAppearance = 'primary' | 'secondary' | 'success' | 'danger' | 'link' | undefined;
+export type ButtonAppearance =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | 'link'
+  | undefined;
 
 @Directive({
-  selector: '[hmButton]',
+  selector: '[hmButton]'
 })
 export class ButtonDirective extends Applier implements OnChanges {
   @Input() appearance: ButtonAppearance;

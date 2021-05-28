@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ErrorComponent } from './error.component';
+import {ErrorComponent} from './error.component';
 
 describe('ErrorComponent', () => {
   let component: ErrorComponent;
@@ -8,9 +8,8 @@ describe('ErrorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ErrorComponent ]
-    })
-    .compileComponents();
+      declarations: [ErrorComponent]
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -25,6 +24,8 @@ describe('ErrorComponent', () => {
 
   it('should add class "invalid-feedback" by default', () => {
     expect(component.baseClass).toEqual(true);
-    expect(fixture.nativeElement.classList.contains('invalid-feedback')).toEqual(true);
+    expect(
+      fixture.nativeElement.classList.contains('invalid-feedback')
+    ).toEqual(true);
   });
 });

@@ -34,8 +34,8 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/ng-halfmoon/**/*.ts",
-              "projects/ng-halfmoon/**/*.html"
+              "projects/ng-halfmoon/src/**/*.ts",
+              "projects/ng-halfmoon/src/**/*.html"
             ]
           }
         }

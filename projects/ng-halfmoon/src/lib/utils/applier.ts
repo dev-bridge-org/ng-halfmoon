@@ -1,9 +1,11 @@
-import {ElementRef, Renderer2, SimpleChange} from "@angular/core";
+import {ElementRef, Renderer2, SimpleChange} from '@angular/core';
 
 export class Applier {
-  constructor(protected el: ElementRef, protected renderer: Renderer2, protected baseClass: string) {
-
-  }
+  constructor(
+    protected el: ElementRef,
+    protected renderer: Renderer2,
+    protected baseClass: string
+  ) {}
 
   protected applyChange(change: SimpleChange, el: ElementRef): void {
     if (Applier.hasValueChanged(change)) {
