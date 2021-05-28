@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'form', component: FormComponent},
   {path: 'darkMode', component: DarkModeToggleComponent},
   {path: 'alert', loadChildren: () => import('./advanced/alert/alert.module').then(m => m.AlertModule)},
-  {path: 'modal', loadChildren: () => import('./modal/modal.module').then(m => m.ModalModule)}
+  {path: 'modal', loadChildren: () => import('./advanced/modal/modal.module').then(m => m.ModalModule)}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes, {useHash: true})],
