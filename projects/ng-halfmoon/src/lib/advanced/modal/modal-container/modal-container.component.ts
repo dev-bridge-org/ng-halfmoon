@@ -1,5 +1,6 @@
-import {Component, HostBinding, HostListener} from '@angular/core';
+import {AfterContentInit, AfterViewInit, Component, HostBinding, HostListener} from '@angular/core';
 import {ModalRef} from "../modal-ref";
+import * as halfmoon from 'halfmoon';
 
 @Component({
   selector: 'hm-modal-container',
@@ -16,17 +17,23 @@ import {ModalRef} from "../modal-ref";
   host: {
     class: 'modal',
     role: 'dialog',
-    tabindex: '-1'
+    tabindex: '-1',
+    'data-overlay-dismissal-disabled': 'true',
+    'data-esc-dismissal-disabled': 'true'
   },
   styles: [
   ]
 })
-export class ModalContainerComponent {
+export class ModalContainerComponent implements AfterContentInit {
   @HostBinding('class.show') isShown = false;
   @HostBinding('attr.id') id: string;
   defaultDismiss: boolean;
 
   constructor(private modalRef: ModalRef) { }
+
+  ngAfterContentInit(): void {
+    // this.isShown = true;
+  }
 
   @HostListener('click', ['$event'])
   onClick(event: MouseEvent): void {

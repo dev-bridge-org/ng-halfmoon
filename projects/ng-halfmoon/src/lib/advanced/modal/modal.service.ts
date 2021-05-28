@@ -1,12 +1,14 @@
 import {
   ApplicationRef,
   ComponentFactoryResolver, ComponentRef,
-  Injectable,
+  Injectable, InjectionToken,
   Injector, Type
 } from '@angular/core';
 import {ModalContainerComponent} from "./modal-container/modal-container.component";
 import {ModalConfig} from "./modal-config";
 import {ModalRef} from "./modal-ref";
+
+export const MODAL_DATA = new InjectionToken('modalData');
 
 @Injectable()
 export class ModalService {
@@ -22,10 +24,10 @@ export class ModalService {
     private _injector: Injector
   ) {}
 
-  createModal<T, D>(component: Type<T>, config?: ModalConfig, data?: D): ModalRef<T> {
+  createModal<T, D>(component: Type<T>, config?: ModalConfig<D>): ModalRef<T> {
     this.modalRef = new ModalRef<T>();
 
-    this.contentRef = this.createContent(component);
+    this.contentRef = this.createContent(component, config);
     this._applicationRef.attachView(this.contentRef.hostView);
 
     this.containerRef = this.createContainer();
@@ -33,9 +35,13 @@ export class ModalService {
     this.containerRef.instance.defaultDismiss = config?.defaultDismiss ?? false;
     this.modalRef.modalId = config?.id ?? `modal-${this.counter}`;
 
-    this.modalRef.close = () => {
-      this.removeModal();
-      this.modalRef.afterClosed.emit();
+    this.modalRef.close = (data) => {
+      this.containerRef.instance.isShown = false;
+      // timeout to not interrupt the closing animation
+      setTimeout(() => {
+        this.removeModal();
+        this.modalRef.afterClosed.emit(data);
+      }, 100)
     };
 
     this._applicationRef.attachView(this.containerRef.hostView);
@@ -43,7 +49,11 @@ export class ModalService {
     const selectedElement = document.querySelector(this.body)
 
     selectedElement?.appendChild(this.containerRef.location.nativeElement);
-    this.containerRef.instance.isShown = true;
+
+    // Trigger toggle a 1ms later to achieve the correct animation
+    setTimeout(() => {
+      this.containerRef.instance.isShown = true;
+    }, 1)
     this.counter++;
     return this.modalRef;
   }
@@ -62,14 +72,15 @@ export class ModalService {
     return factory.create(injector, [[this.contentRef.location.nativeElement]]);
   }
 
-  private createContent<T>(component: Type<T>): ComponentRef<T> {
+  private createContent<T, D>(component: Type<T>, config?: ModalConfig<D>): ComponentRef<T> {
     const contentCmptFactory = this._componentFactoryResolver.resolveComponentFactory(
       component
     );
 
     const modalContentInjector = Injector.create({
       providers: [
-        {provide: ModalRef, useValue: this.modalRef}
+        {provide: ModalRef, useValue: this.modalRef},
+        {provide: MODAL_DATA, useValue: config?.data}
       ],
       parent: this._injector
     });
