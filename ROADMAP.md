@@ -6,10 +6,15 @@ here you can see what we have already implemented and also what we are looking f
 
 ### Basic Elements
 * Button
+* DarkModeService
 
 ### Form Elements
 * Input
 * Select
+
+### Advanced Elements
+* Alerts
+* Modal
 
 ## What are we looking for next?
 
@@ -22,9 +27,9 @@ here you can see what we have already implemented and also what we are looking f
 
 ### Form Elements
 * Form
+* Textarea
 
 ### Advanced Elements
-* Alerts
 * Progress
 * Toasts
-* Modal
+* Dropdown

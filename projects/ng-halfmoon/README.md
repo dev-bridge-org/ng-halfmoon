@@ -1,6 +1,8 @@
 # NgHalfmoon
 This is the angular-library for [halfmoon](https://www.gethalfmoon.com/)
 
+The documentation can be found via this [link](https://nostalgic-thompson-e79979.netlify.app/)
+
 ## Installation
 You can install `ng-halfmoon` via npm
 ```bash
@@ -53,6 +55,7 @@ You can use halfmoon as you would use it with normal html.
 
 ### Basics
 * Button
+* DarkModeService
 
 ### Form
 * Input (with Containers to add labels and feedback)
@@ -60,3 +63,4 @@ You can use halfmoon as you would use it with normal html.
 
 ### Advanced
 * Alert
+* Modal
