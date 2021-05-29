@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {ALERT_BASIC_HTML, ALERT_DISMISS_HTML} from "./alert-docs.constants";
+import {ALERT_BASIC_HTML, ALERT_DISMISS_HTML} from './alert-docs.constants';
 
 @Component({
   selector: 'app-alert',

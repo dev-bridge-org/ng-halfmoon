@@ -1,17 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import {ModalService} from "ng-halfmoon";
-import {DismissModalComponent} from "./dismiss-modal/dismiss-modal.component";
-import {DataInputModalComponent} from "./data-input-modal/data-input-modal.component";
-import {BasicModalComponent} from "./basic-modal/basic-modal.component";
-import {DataOutputModalComponent} from "./data-output-modal/data-output-modal.component";
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ModalService} from 'ng-halfmoon';
+import {DismissModalComponent} from './dismiss-modal/dismiss-modal.component';
+import {DataInputModalComponent} from './data-input-modal/data-input-modal.component';
+import {BasicModalComponent} from './basic-modal/basic-modal.component';
+import {DataOutputModalComponent} from './data-output-modal/data-output-modal.component';
 import {
-  DATA_INPUT_CALL, DATA_INPUT_MODAL_HTML, DATA_INPUT_MODAL_TS,
+  DATA_INPUT_CALL,
+  DATA_INPUT_MODAL_HTML,
+  DATA_INPUT_MODAL_TS,
   DATA_OUTPUT_CALL,
   DATA_OUTPUT_MODAL_HTML,
-  DATA_OUTPUT_MODAL_TS, DISMISS_CALL, DISMISS_MODAL_HTML, DISMISS_MODAL_TS,
-  STANDARD_CALL, STANDARD_MODAL_HTML,
+  DATA_OUTPUT_MODAL_TS,
+  DISMISS_CALL,
+  DISMISS_MODAL_HTML,
+  DISMISS_MODAL_TS,
+  STANDARD_CALL,
+  STANDARD_MODAL_HTML,
   STANDARD_MODAL_TS
-} from "./modal-doc.constants";
+} from './modal-doc.constants';
 
 interface Test {
   test: string;
@@ -20,29 +26,32 @@ interface Test {
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
-  styleUrls: []
+  styleUrls: [],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ModalComponent implements OnInit {
-
-  constructor(private modalService: ModalService) { }
-
-  ngOnInit(): void {
-  }
+export class ModalComponent {
+  constructor(private modalService: ModalService) {}
 
   openStandard(): void {
     this.modalService.createModal(BasicModalComponent);
   }
 
   openWithDismiss(): void {
-    this.modalService.createModal(DismissModalComponent, {defaultDismiss: true});
+    this.modalService.createModal(DismissModalComponent, {
+      defaultDismiss: true
+    });
   }
 
   openWithCustomData(): void {
-    this.modalService.createModal(DataInputModalComponent, {data: {test: 'Hello I am a test'}});
+    this.modalService.createModal(DataInputModalComponent, {
+      data: {test: 'Hello I am a test'}
+    });
   }
 
   openWithReturnedData(): void {
-    const modalRef = this.modalService.createModal(DataOutputModalComponent, {defaultDismiss: true});
+    const modalRef = this.modalService.createModal(DataOutputModalComponent, {
+      defaultDismiss: true
+    });
 
     modalRef.afterClosed.subscribe((data) => {
       console.log('Test', data);
@@ -96,5 +105,4 @@ export class ModalComponent implements OnInit {
   get dataOutputModalHtml(): string {
     return DATA_OUTPUT_MODAL_HTML;
   }
-
 }

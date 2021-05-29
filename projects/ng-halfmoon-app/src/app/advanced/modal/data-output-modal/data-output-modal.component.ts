@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {ModalRef} from "ng-halfmoon";
-import {FormControl, FormGroup} from "@angular/forms";
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ModalRef} from 'ng-halfmoon';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-data-output-modal',
@@ -8,27 +8,25 @@ import {FormControl, FormGroup} from "@angular/forms";
     <form [formGroup]="form">
       <hm-input-container>
         <label for="name">Name</label>
-        <input type="text" hmInput formControlName="name">
+        <input type="text" hmInput formControlName="name" />
       </hm-input-container>
 
-      <button hmButton appearance="primary" (click)="submit()" type="button">Submit</button>
+      <button hmButton appearance="primary" (click)="submit()" type="button">
+        Submit
+      </button>
     </form>
   `,
-  styles: [
-  ]
+  styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DataOutputModalComponent implements OnInit {
+export class DataOutputModalComponent {
   form = new FormGroup({
     name: new FormControl('')
   });
 
-  constructor(private modalRef: ModalRef) { }
-
-  ngOnInit(): void {
-  }
+  constructor(private modalRef: ModalRef) {}
 
   submit(): void {
     this.modalRef.close(this.form.value);
   }
-
 }

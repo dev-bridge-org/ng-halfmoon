@@ -1,4 +1,4 @@
-import hljs from "highlight.js";
+import hljs from 'highlight.js';
 
 export const ALERT_BASIC_HTML = hljs.highlight(
   `<hm-alert>
@@ -21,7 +21,9 @@ export const ALERT_BASIC_HTML = hljs.highlight(
   <h4 class="alert-heading">Danger alert</h4>
   This is a danger alert with some content and <a href="#" class="alert-link">a link</a>.
 </hm-alert>
-`, {language: 'html'}).value;
+`,
+  {language: 'html'}
+).value;
 
 export const ALERT_DISMISS_HTML = hljs.highlight(
   `<hm-alert [dismissable]="true">
@@ -44,4 +46,6 @@ export const ALERT_DISMISS_HTML = hljs.highlight(
   <h4 class="alert-heading">Danger alert</h4>
   This is a danger alert with some content and <a href="#" class="alert-link">a link</a>.
 </hm-alert>
-`, {language: 'html'}).value;
+`,
+  {language: 'html'}
+).value;

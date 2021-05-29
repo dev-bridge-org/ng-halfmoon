@@ -1,5 +1,5 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {ModalRef, MODAL_DATA} from "ng-halfmoon";
+import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
+import {MODAL_DATA, ModalRef} from 'ng-halfmoon';
 
 interface Test {
   test: string;
@@ -10,18 +10,17 @@ interface Test {
   template: `
     <h5 class="modal-title">Modal with Data send to the modal</h5>
     <p>
-      {{testData}}
+      {{ testData }}
     </p>
   `,
-  styles: [
-  ]
+  styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DataInputModalComponent implements OnInit {
-
-  constructor(private modalRef: ModalRef<DataInputModalComponent>, @Inject(MODAL_DATA) private data: Test) { }
-
-  ngOnInit(): void {
-  }
+export class DataInputModalComponent {
+  constructor(
+    private modalRef: ModalRef<DataInputModalComponent>,
+    @Inject(MODAL_DATA) private data: Test
+  ) {}
 
   get testData(): string {
     return this.data.test;
