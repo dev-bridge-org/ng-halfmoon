@@ -3,13 +3,12 @@ import {RouterModule, Routes} from '@angular/router';
 import {InputComponent} from './input/input.component';
 import {SelectComponent} from './select/select.component';
 import {FormComponent} from './form/form.component';
-import {DarkModeToggleComponent} from './basics/dark-mode-toggle/dark-mode-toggle.component';
 
 const routes: Routes = [
   {
     path: 'buttons',
     loadChildren: () =>
-      import('./buttons/buttons.module').then((m) => m.ButtonsModule)
+      import('./basics/buttons/buttons.module').then((m) => m.ButtonsModule)
   },
   {path: 'input', component: InputComponent},
   {path: 'select', component: SelectComponent},

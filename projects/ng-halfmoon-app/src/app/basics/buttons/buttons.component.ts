@@ -1,10 +1,11 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {
-  BUTTON_APPEARANCE_HTML, BUTTON_DISABLED_HTML,
+  BUTTON_APPEARANCE_HTML,
+  BUTTON_DISABLED_HTML,
   BUTTON_SHAPES_HTML,
   BUTTON_SIZING_HTML,
   BUTTON_TAGS_HTML
-} from "./button-docs.constants";
+} from './button-docs.constants';
 
 @Component({
   selector: 'app-buttons',
