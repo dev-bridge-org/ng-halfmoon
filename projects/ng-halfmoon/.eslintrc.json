@@ -9,6 +9,7 @@
         "*.ts"
       ],
       "parserOptions": {
+        "tsconfigRootDir": "projects/ng-halfmoon",
         "project": [
           "tsconfig.lib.json",
           "tsconfig.spec.json"

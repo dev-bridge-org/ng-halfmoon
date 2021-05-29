@@ -1,6 +1,13 @@
-import {AfterViewChecked, Component, ElementRef, Injector, OnInit, Renderer2} from '@angular/core';
-import {FormGroupDirective} from "../../form-group/form-group.directive";
-import {ControlService} from "../../services/control.service";
+import {
+  AfterViewChecked,
+  Component,
+  ElementRef,
+  Injector,
+  OnInit,
+  Renderer2
+} from '@angular/core';
+import {FormGroupDirective} from '../../form-group/form-group.directive';
+import {ControlService} from '../../services/control.service';
 
 @Component({
   selector: 'hm-select-container',
@@ -19,7 +26,10 @@ import {ControlService} from "../../services/control.service";
   ],
   providers: [ControlService]
 })
-export class SelectContainerComponent extends FormGroupDirective implements OnInit, AfterViewChecked {
+export class SelectContainerComponent
+  extends FormGroupDirective
+  implements OnInit, AfterViewChecked
+{
   control: HTMLSelectElement;
 
   constructor(el: ElementRef, renderer: Renderer2, injector: Injector) {

@@ -1,19 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { InputContainerComponent } from './input-container.component';
-import {Component, DebugElement} from "@angular/core";
-import {FormControl, ReactiveFormsModule, Validators} from "@angular/forms";
-import {ErrorComponent} from "../../error/error.component";
-import {HintComponent} from "../../hint/hint.component";
-import {InputDirective} from "../input.directive";
-import {By} from "@angular/platform-browser";
+import {InputContainerComponent} from './input-container.component';
+import {Component, DebugElement} from '@angular/core';
+import {FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
+import {ErrorComponent} from '../../error/error.component';
+import {HintComponent} from '../../hint/hint.component';
+import {InputDirective} from '../input.directive';
+import {By} from '@angular/platform-browser';
 
 @Component({
   template: `
     <hm-input-container>
       <label for="firstname">Firstname</label>
-      <input type="text" hmInput [formControl]="firstname">
-      <hm-error *ngIf="firstname.hasError('required')">Field is required!</hm-error>
+      <input type="text" hmInput [formControl]="firstname" />
+      <hm-error *ngIf="firstname.hasError('required')"
+        >Field is required!</hm-error
+      >
       <hm-hint>only alphabetic characters allowed</hm-hint>
     </hm-input-container>
   `
@@ -39,11 +41,8 @@ describe('InputContainerComponent', () => {
         HintComponent,
         InputDirective
       ],
-      imports: [
-        ReactiveFormsModule,
-      ]
-    })
-    .compileComponents();
+      imports: [ReactiveFormsModule]
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -57,7 +56,11 @@ describe('InputContainerComponent', () => {
   });
 
   it('should have class "form-group" added to the container', () => {
-    expect(queryContainer(fixture.debugElement).nativeElement.classList.contains('form-group')).toEqual(true);
+    expect(
+      queryContainer(fixture.debugElement).nativeElement.classList.contains(
+        'form-group'
+      )
+    ).toEqual(true);
   });
 
   it('should change to invalid once touched and required', () => {
@@ -65,6 +68,10 @@ describe('InputContainerComponent', () => {
     component.firstname.patchValue('Test');
     component.firstname.patchValue('');
     fixture.detectChanges();
-    expect(queryContainer(fixture.debugElement).nativeElement.classList.contains('is-invalid')).toEqual(true);
-  })
+    expect(
+      queryContainer(fixture.debugElement).nativeElement.classList.contains(
+        'is-invalid'
+      )
+    ).toEqual(true);
+  });
 });

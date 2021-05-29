@@ -26,16 +26,16 @@
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
-            "configPath": "jest.config.js",
-            "tsConfig": "projects/ng-halfmoon/tsconfig.spec.json"
+            "configPath": "jest-ng.config.js",
+            "tsConfig": "tsconfig.spec.json"
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/ng-halfmoon/**/*.ts",
-              "projects/ng-halfmoon/**/*.html"
+              "projects/ng-halfmoon/src/**/*.ts",
+              "projects/ng-halfmoon/src/**/*.html"
             ]
           }
         }
@@ -67,8 +67,7 @@
             "styles": [
               "node_modules/halfmoon/css/halfmoon.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css",
-              "node_modules/highlight.js/styles/github.css",
-              "projects/ng-halfmoon-app/src/styles.css"
+              "projects/ng-halfmoon-app/src/styles.scss"
             ],
             "scripts": [
               "node_modules/@fortawesome/fontawesome-free/js/brands.min.js",

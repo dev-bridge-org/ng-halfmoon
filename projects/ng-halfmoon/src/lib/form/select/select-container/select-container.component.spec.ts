@@ -1,12 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SelectContainerComponent } from './select-container.component';
-import {Component, DebugElement} from "@angular/core";
-import {FormControl, ReactiveFormsModule, Validators} from "@angular/forms";
-import {ErrorComponent} from "../../error/error.component";
-import {HintComponent} from "../../hint/hint.component";
-import {By} from "@angular/platform-browser";
-import {SelectDirective} from "../select.directive";
+import {SelectContainerComponent} from './select-container.component';
+import {Component, DebugElement} from '@angular/core';
+import {FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
+import {ErrorComponent} from '../../error/error.component';
+import {HintComponent} from '../../hint/hint.component';
+import {By} from '@angular/platform-browser';
+import {SelectDirective} from '../select.directive';
 
 @Component({
   template: `
@@ -15,7 +15,9 @@ import {SelectDirective} from "../select.directive";
       <select hmSelect [formControl]="specialization">
         <option value="frontend">Frontend</option>
       </select>
-      <hm-error *ngIf="specialization.hasError('required')">Field is required!</hm-error>
+      <hm-error *ngIf="specialization.hasError('required')"
+        >Field is required!</hm-error
+      >
       <hm-hint>Select your specialization</hm-hint>
     </hm-select-container>
   `
@@ -41,11 +43,8 @@ describe('SelectContainerComponent', () => {
         HintComponent,
         SelectDirective
       ],
-      imports: [
-        ReactiveFormsModule,
-      ]
-    })
-      .compileComponents();
+      imports: [ReactiveFormsModule]
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -59,7 +58,11 @@ describe('SelectContainerComponent', () => {
   });
 
   it('should have class "form-group" added to the container', () => {
-    expect(queryContainer(fixture.debugElement).nativeElement.classList.contains('form-group')).toEqual(true);
+    expect(
+      queryContainer(fixture.debugElement).nativeElement.classList.contains(
+        'form-group'
+      )
+    ).toEqual(true);
   });
 
   it('should change to invalid once touched and required', () => {
@@ -67,6 +70,10 @@ describe('SelectContainerComponent', () => {
     component.specialization.patchValue('Test');
     component.specialization.patchValue('');
     fixture.detectChanges();
-    expect(queryContainer(fixture.debugElement).nativeElement.classList.contains('is-invalid')).toEqual(true);
-  })
+    expect(
+      queryContainer(fixture.debugElement).nativeElement.classList.contains(
+        'is-invalid'
+      )
+    ).toEqual(true);
+  });
 });

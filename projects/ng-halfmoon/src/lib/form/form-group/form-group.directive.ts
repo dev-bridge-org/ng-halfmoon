@@ -1,5 +1,6 @@
 import {
-  ContentChild, Directive,
+  ContentChild,
+  Directive,
   ElementRef,
   HostBinding,
   Injector,
@@ -7,9 +8,9 @@ import {
   OnInit,
   Renderer2
 } from '@angular/core';
-import {InputDirective} from "../input/input.directive";
-import {ControlService, ControlStatus} from "../services/control.service";
-import {Subscription} from "rxjs";
+import {InputDirective} from '../input/input.directive';
+import {ControlService, ControlStatus} from '../services/control.service';
+import {Subscription} from 'rxjs';
 
 @Directive()
 export abstract class FormGroupDirective implements OnInit, OnDestroy {
@@ -19,14 +20,20 @@ export abstract class FormGroupDirective implements OnInit, OnDestroy {
 
   @ContentChild(InputDirective) input: InputDirective;
 
-  private controlService: ControlService
-  private subscription: Subscription
+  private controlService: ControlService;
+  private subscription: Subscription;
 
-  protected constructor(protected el: ElementRef, protected renderer: Renderer2, protected injector: Injector) {
+  protected constructor(
+    protected el: ElementRef,
+    protected renderer: Renderer2,
+    protected injector: Injector
+  ) {
     this.controlService = injector.get(ControlService);
-    this.subscription = this.controlService.currentStatus$.subscribe((status) => {
-      this.isInvalid = status === ControlStatus.INVALID;
-    });
+    this.subscription = this.controlService.currentStatus$.subscribe(
+      (status) => {
+        this.isInvalid = status === ControlStatus.INVALID;
+      }
+    );
   }
 
   ngOnInit(): void {
@@ -38,9 +45,12 @@ export abstract class FormGroupDirective implements OnInit, OnDestroy {
   }
 
   updateLabelPostfix(isRequired: boolean): void {
-    if(isRequired && !this.controlLabel.classList.contains('required')) {
+    if (isRequired && !this.controlLabel.classList.contains('required')) {
       this.renderer.addClass(this.controlLabel, 'required');
-    } else if (!isRequired && this.controlLabel.classList.contains('required')) {
+    } else if (
+      !isRequired &&
+      this.controlLabel.classList.contains('required')
+    ) {
       this.renderer.removeClass(this.controlLabel, 'required');
     }
   }

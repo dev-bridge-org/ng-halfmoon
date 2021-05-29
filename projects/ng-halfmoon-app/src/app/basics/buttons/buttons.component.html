@@ -1,0 +1,77 @@
+<div class="content">
+  <h2>Buttons</h2>
+  <p>
+    Buttons can be used in different ways and so you can use them easy in your angular-app just add the <code class="code">hmButton</code> directive to it.
+  </p>
+</div>
+<div class="content">
+  <h3>All appearances</h3>
+  <p>
+    There are different appearances for the buttons you can choose between one of them and style your button as you need it. <br/>
+    You need to add the input <code class="code">appearance</code> to style your button.
+  </p>
+</div>
+<app-sample-wrapper>
+  <button hmButton class="mr-10">Default</button>
+  <button hmButton appearance="primary" class="mr-10">Primary</button>
+  <button hmButton appearance="danger" class="mr-10">Danger</button>
+  <button hmButton appearance="link" class="mr-10">Link</button>
+  <button hmButton appearance="success" class="mr-10">Success</button>
+  <button hmButton appearance="secondary" class="mr-10">Secondary</button>
+  <app-code-collapse title="Different Appearances" language="html" [code]="appearanceHtml"></app-code-collapse>
+</app-sample-wrapper>
+<div class="content">
+  <h3>Tags</h3>
+  <p>
+    There are three different approaches to use show buttons.<br/>
+    You can use the following tags: <code class="code">button</code>, <code class="code">input</code> and <code class="code">a</code>.
+  </p>
+</div>
+<app-sample-wrapper>
+  <button hmButton class="mr-10">Default</button>
+  <input hmButton appearance="primary" type="submit" value="Input-Button" class="mr-10">
+  <a hmButton appearance="link" role="button" href="#" class="mr-10">Link</a>
+  <app-code-collapse title="Different tags" language="html" [code]="tagsHtml"></app-code-collapse>
+</app-sample-wrapper>
+<div class="content">
+  <h3>Sizing</h3>
+  <p>
+    A button can have different sizes, so you can adjust it as you need and where it is positioned. <br/>
+    Therefore you can add the input <code class="code">size</code> with two options: <code class="code">sm</code> and <code class="code">lg</code>. <br/>
+    When your button should have the normal size simply don't add the input.
+  </p>
+</div>
+<app-sample-wrapper>
+  <button hmButton size="lg" class="mr-10 mb-10">Default</button>
+  <button hmButton appearance="primary" size="lg" class="mr-10 mb-10">Primary</button>
+  <br/>
+  <button hmButton size="sm" class="mr-10">Default</button>
+  <button hmButton appearance="primary" size="sm" class="mr-10">Primary</button>
+  <app-code-collapse title="Different sizes" language="html" [code]="sizingHtml"></app-code-collapse>
+</app-sample-wrapper>
+
+<div class="content">
+  <h3>Shapes</h3>
+  <p>
+    Your buttons can have different shapes by adding the input <code class="code">shape</code>. <br/>
+    The input has the following options: <code class="code">rounded</code> and <code class="code">square</code>.
+  </p>
+</div>
+<app-sample-wrapper>
+  <button hmButton shape="rounded" class="mr-10">Default</button>
+  <button hmButton shape="square" class="mr-10">&times;</button>
+  <app-code-collapse title="Different shapes" language="html" [code]="shapesHtml"></app-code-collapse>
+</app-sample-wrapper>
+
+<div class="content">
+  <h3>Disabled</h3>
+  <p>
+    Disabling buttons is important to deny users from doing actions they should not do. <br/>
+    This is achievable by adding the input <code class="code">disabled</code> with a boolean value to the button.
+  </p>
+</div>
+<app-sample-wrapper>
+  <button hmButton [disabled]="true">Default</button>
+  <button hmButton appearance="primary" [disabled]="true">Primary</button>
+  <app-code-collapse title="Disabling buttons" language="html" [code]="disabledHtml"></app-code-collapse>
+</app-sample-wrapper>

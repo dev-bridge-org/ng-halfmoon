@@ -1,0 +1,14 @@
+<div class="content">
+  <h2>Dark-Mode</h2>
+</div>
+<div class="content">
+  <h3>Basic Usage</h3>
+  <p>
+    As halfmoon has a light and a dark-mode you switch between those 2 via a Service.<br/>
+    You need to inject the <code class="code">DarkModeService</code> into your component and then you can call the <code class="code">.toggleDarkMode()</code> method to switch.
+  </p>
+</div>
+<app-sample-wrapper>
+  <button hmButton (click)="toggle()"><i class="fa fa-moon"></i></button>
+  <app-code-collapse title="Dark-Mode Usage" language="ts" [code]="darkModeUsage"></app-code-collapse>
+</app-sample-wrapper>

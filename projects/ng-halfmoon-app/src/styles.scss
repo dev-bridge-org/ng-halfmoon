@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  @import "node_modules/highlight.js/scss/atom-one-light.scss";
+}
+body.dark-mode {
+  @import "node_modules/highlight.js/scss/atom-one-dark.scss";
+}

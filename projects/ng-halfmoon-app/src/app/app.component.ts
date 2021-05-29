@@ -1,17 +1,14 @@
 import {Component} from '@angular/core';
-import {DarkModeService} from "ng-halfmoon";
-import {Observable} from "rxjs";
+import {DarkModeService} from 'ng-halfmoon';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: []
 })
 export class AppComponent {
-  title = 'ng-halfmoon-app';
-
-  constructor(private darkMode: DarkModeService) {
-  }
+  constructor(private darkMode: DarkModeService) {}
 
   toggle(): void {
     this.darkMode.toggleDarkMode();

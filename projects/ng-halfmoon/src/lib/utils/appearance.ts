@@ -1,1 +1,6 @@
-export type Appearance = 'primary' | 'secondary' | 'success' | 'danger' | undefined;
+export type Appearance =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | undefined;

@@ -1,10 +1,19 @@
-import { NgModule } from '@angular/core';
-import {ButtonDirective, DarkModeService} from "./basics";
-import {ErrorComponent, HintComponent, InputContainerComponent, InputDirective, SelectDirective} from './form';
-import {CommonModule} from "@angular/common";
-import { SelectContainerComponent } from './form/select/select-container/select-container.component';
-import {AlertComponent, ModalContainerComponent, ModalService} from './advanced';
-
+import {NgModule} from '@angular/core';
+import {ButtonDirective, DarkModeService} from './basics';
+import {
+  ErrorComponent,
+  HintComponent,
+  InputContainerComponent,
+  InputDirective,
+  SelectContainerComponent,
+  SelectDirective
+} from './form';
+import {CommonModule} from '@angular/common';
+import {
+  AlertComponent,
+  ModalContainerComponent,
+  ModalService
+} from './advanced';
 
 @NgModule({
   declarations: [
@@ -18,13 +27,8 @@ import {AlertComponent, ModalContainerComponent, ModalService} from './advanced'
     AlertComponent,
     ModalContainerComponent
   ],
-  providers: [
-    DarkModeService,
-    ModalService
-  ],
-  imports: [
-    CommonModule
-  ],
+  providers: [DarkModeService, ModalService],
+  imports: [CommonModule],
   exports: [
     ButtonDirective,
     InputDirective,
@@ -37,4 +41,4 @@ import {AlertComponent, ModalContainerComponent, ModalService} from './advanced'
     ModalContainerComponent
   ]
 })
-export class NgHalfmoonModule { }
+export class NgHalfmoonModule {}
