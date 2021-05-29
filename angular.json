@@ -67,8 +67,7 @@
             "styles": [
               "node_modules/halfmoon/css/halfmoon.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css",
-              "node_modules/highlight.js/styles/github.css",
-              "projects/ng-halfmoon-app/src/styles.css"
+              "projects/ng-halfmoon-app/src/styles.scss"
             ],
             "scripts": [
               "node_modules/@fortawesome/fontawesome-free/js/brands.min.js",

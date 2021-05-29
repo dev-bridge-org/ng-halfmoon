@@ -8,8 +8,7 @@
     You need to inject the <code class="code">DarkModeService</code> into your component and then you can call the <code class="code">.toggleDarkMode()</code> method to switch.
   </p>
 </div>
-<div class="card p-0">
-  <div class="content w-400 mw-full">
-    <button hmButton (click)="toggle()"><i class="fa fa-moon"></i></button>
-  </div>
-</div>
+<app-sample-wrapper>
+  <button hmButton (click)="toggle()"><i class="fa fa-moon"></i></button>
+  <app-code-collapse title="Dark-Mode Usage" language="ts" [code]="darkModeUsage"></app-code-collapse>
+</app-sample-wrapper>

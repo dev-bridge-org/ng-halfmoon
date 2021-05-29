@@ -10,8 +10,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
       <ng-content select="app-code-collapse"></ng-content>
     </div>
   `,
-  styles: [
-  ],
+  styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SampleWrapperComponent {}

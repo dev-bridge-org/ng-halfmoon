@@ -8,7 +8,6 @@ import { InputComponent } from './input/input.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SelectComponent } from './select/select.component';
 import { FormComponent } from './form/form.component';
-import { DarkModeToggleComponent } from './dark-mode-toggle/dark-mode-toggle.component';
 import {DocHelperModule} from "./doc-helper/doc-helper.module";
 
 @NgModule({
@@ -16,8 +15,7 @@ import {DocHelperModule} from "./doc-helper/doc-helper.module";
     AppComponent,
     InputComponent,
     SelectComponent,
-    FormComponent,
-    DarkModeToggleComponent
+    FormComponent
   ],
   imports: [
     BrowserModule,

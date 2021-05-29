@@ -16,9 +16,6 @@
     <!-- Navbar nav -->
     <ul class="navbar-nav d-none d-md-flex"> <!-- d-none = display: none, d-md-flex = display: flex on medium screens and up (width > 768px) -->
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="darkMode">Dark-Mode</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="form">Form</a>
       </li>
     </ul>
@@ -35,7 +32,6 @@
           <i class="fa fa-angle-down" aria-hidden="true"></i>
         </button>
         <div class="dropdown-menu dropdown-menu-right w-200" aria-labelledby="navbar-dropdown-toggle-btn-1"> <!-- w-200 = width: 20rem (200px) -->
-          <a routerLink="darkMode" class="dropdown-item">Dark-Mode</a>
           <a routerLink="form" class="dropdown-item">Form</a>
           <div class="dropdown-divider"></div>
         </div>
@@ -49,6 +45,7 @@
       <!-- Sidebar links and titles -->
       <h5 class="sidebar-title">Basics</h5>
       <div class="sidebar-divider"></div>
+      <a routerLink="darkMode" routerLinkActive="active" class="sidebar-link">Dark-Mode</a>
       <a routerLink="buttons" routerLinkActive="active" class="sidebar-link">Buttons</a>
       <br/>
       <h5 class="sidebar-title">Forms</h5>
